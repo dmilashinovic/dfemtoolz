@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="dfemtoolz_openR" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/dfemtoolz_openR" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../dfemtoolz_dMyLib/dBase/dCollection.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dBase/dConstants.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dBase/dError.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dBase/dError.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dBase/dSuperCollection.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Element.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Element.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Functions.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Functions.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Node.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Node.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Plane.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_Plane.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dGeom/dGeom_TFunctions.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dInit/dInit_Node.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dInit/dInit_Node.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMesh_Node.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMesh_Node.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMeshing.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dMeshing.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMesh/dTMeshing.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dDirectory_Miner.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dDirectory_Miner.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dMisc_Functionz.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dMisc_Functionz.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dPercent.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dPercent.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dRandom_Number_Generator.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dRandom_Number_Generator.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dSTL_Triangle.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dSTL_Triangle.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dTimer.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dMisc/dTimer.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dfemtoolz_dMyLib.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPost/dPost_Node.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPost/dPost_Node.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dInfo.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dInfo.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dPOS_Printer.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dPOS_Printer.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dPrinting.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dPrinting.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dSLI_Printer.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dWRL_Printer.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dWRL_Printer.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dFAL_Reader.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dFAL_Reader.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dFemap_Reader.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dFemap_Reader.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dReading.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dReading.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dSLI_Reader.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dSLI_Reader.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dSTL_Reader.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dSTL_Reader.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dTetgen_Reader.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dTetgen_Reader.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dUNV_Reader.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dRead/dUNV_Reader.h" />
+		<Unit filename="dopenR.cxx" />
+		<Unit filename="dopenR.h" />
+		<Unit filename="dopenR_functions.cxx" />
+		<Unit filename="dopenR_functions.h" />
+		<Unit filename="dopenR_parameters.cxx" />
+		<Unit filename="dopenR_parameters.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

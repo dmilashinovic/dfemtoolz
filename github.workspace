@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="dfemtoolz_dMyLib/dfemtoolz_dMyLib.cbp" />
+		<Project filename="dfemtoolz_multimaterial/dfemtoolz_dmultimaterial.cbp" />
+		<Project filename="dfemtoolz_nolimit/dfemtoolz_dnolimit.cbp" />
+		<Project filename="dfemtoolz_openR/dopenR.cbp" />
+		<Project filename="dfemtoolz_remesh/dfemtoolz_remesh.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="dfemtoolz_dMyLib" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="dfemtoolz_dMyLib" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="dBase/dCollection.h" />
+		<Unit filename="dBase/dConstants.h" />
+		<Unit filename="dBase/dError.cxx" />
+		<Unit filename="dBase/dError.h" />
+		<Unit filename="dBase/dSuperCollection.h" />
+		<Unit filename="dGeom/dGeom_Element.cxx" />
+		<Unit filename="dGeom/dGeom_Element.h" />
+		<Unit filename="dGeom/dGeom_Functions.cxx" />
+		<Unit filename="dGeom/dGeom_Functions.h" />
+		<Unit filename="dGeom/dGeom_Node.cxx" />
+		<Unit filename="dGeom/dGeom_Node.h" />
+		<Unit filename="dGeom/dGeom_Plane.cxx" />
+		<Unit filename="dGeom/dGeom_Plane.h" />
+		<Unit filename="dGeom/dGeom_TFunctions.h" />
+		<Unit filename="dInit/dInit_Node.cxx" />
+		<Unit filename="dInit/dInit_Node.h" />
+		<Unit filename="dMesh/dMesh_Boundary_and_Loads.cxx" />
+		<Unit filename="dMesh/dMesh_Boundary_and_Loads.h" />
+		<Unit filename="dMesh/dMesh_Neighbours.cxx" />
+		<Unit filename="dMesh/dMesh_Neighbours.h" />
+		<Unit filename="dMesh/dMesh_Node.cxx" />
+		<Unit filename="dMesh/dMesh_Node.h" />
+		<Unit filename="dMesh/dMeshing.cxx" />
+		<Unit filename="dMesh/dMeshing.h" />
+		<Unit filename="dMesh/dTMeshing.h" />
+		<Unit filename="dMisc/dDirectory_Miner.cxx" />
+		<Unit filename="dMisc/dDirectory_Miner.h" />
+		<Unit filename="dMisc/dMisc_Functionz.cxx" />
+		<Unit filename="dMisc/dMisc_Functionz.h" />
+		<Unit filename="dMisc/dPercent.cxx" />
+		<Unit filename="dMisc/dPercent.h" />
+		<Unit filename="dMisc/dRandom_Number_Generator.cxx" />
+		<Unit filename="dMisc/dRandom_Number_Generator.h" />
+		<Unit filename="dMisc/dSTL_Triangle.cxx" />
+		<Unit filename="dMisc/dSTL_Triangle.h" />
+		<Unit filename="dMisc/dTimer.cxx" />
+		<Unit filename="dMisc/dTimer.h" />
+		<Unit filename="dfemtoolz_dMyLib.h" />
+		<Unit filename="dPost/dPost_Node.cxx" />
+		<Unit filename="dPost/dPost_Node.h" />
+		<Unit filename="dPrin/dInfo.cxx" />
+		<Unit filename="dPrin/dInfo.h" />
+		<Unit filename="dPrin/dPOS_Printer.cxx" />
+		<Unit filename="dPrin/dPOS_Printer.h" />
+		<Unit filename="dPrin/dPrinting.cxx" />
+		<Unit filename="dPrin/dPrinting.h" />
+		<Unit filename="dPrin/dSLI_Printer.cxx" />
+		<Unit filename="dPrin/dSLI_Printer.h" />
+		<Unit filename="dPrin/dWRL_Printer.cxx" />
+		<Unit filename="dPrin/dWRL_Printer.h" />
+		<Unit filename="dRead/dFAL_Reader.cxx" />
+		<Unit filename="dRead/dFAL_Reader.h" />
+		<Unit filename="dRead/dFemap_Reader.cxx" />
+		<Unit filename="dRead/dFemap_Reader.h" />
+		<Unit filename="dRead/dReading.cxx" />
+		<Unit filename="dRead/dReading.h" />
+		<Unit filename="dRead/dSLI_Reader.cxx" />
+		<Unit filename="dRead/dSLI_Reader.h" />
+		<Unit filename="dRead/dSTL_Reader.cxx" />
+		<Unit filename="dRead/dSTL_Reader.h" />
+		<Unit filename="dRead/dTetgen_Reader.cxx" />
+		<Unit filename="dRead/dTetgen_Reader.h" />
+		<Unit filename="dRead/dUNV_Reader.cxx" />
+		<Unit filename="dRead/dUNV_Reader.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
