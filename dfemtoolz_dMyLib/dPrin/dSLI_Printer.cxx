@@ -54,7 +54,7 @@ void SLI_Printer::create_sli_file(string path_and_fileName)
     m_sPath_and_FileName = path_and_fileName;
     ofstream sli;
     sli.open(m_sPath_and_FileName.c_str());
-    sli << "C this sli file is printed by dfemtoolz_remesh by dmilashinovic@gmail.com" << endl;
+    sli << "C this sli file is printed by dfemtoolz by dmilashinovic@gmail.com" << endl;
     sli.close();
 }
 
