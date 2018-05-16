@@ -2,7 +2,7 @@
 Hello and thank you for your interest in dfemtoolz
 
 
-In this package user can find the C++ source code and set of examples of dfemtoolz (aka danko's finite element toolz) software written by Danko Milasinovic. 
+In this package user can find the C++ source code and set of examples of dfemtoolz software written by Danko Milasinovic. 
 
 This package includes (in short words):
 
