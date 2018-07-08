@@ -4,7 +4,7 @@
 Hello and thank you for your interest in dfemtoolz
 
 
-In this package user can find the C++ source code and set of examples of dfemtoolz (aka danko's finite element toolz) software written by Danko Milasinovic. 
+In this package user can find the C++ source code and set of examples of dfemtoolz software written by Danko Milasinovic. 
 
 This package includes (in short words):
 
@@ -18,7 +18,7 @@ This package includes (in short words):
 
 * dfemtoolz_multimaterial - tool that is used to generate multimaterial models from multiple models (this software is able to export contact surfaces and various data as well)
 
-* dfemtoolz_examples.zip - set of examples
+* dfemtoolz_example-xx.tar.gz - set of examples
 
 * dmilashinovic_dok_low_res.pdf - phd thesis
 
