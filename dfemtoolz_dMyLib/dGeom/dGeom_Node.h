@@ -36,6 +36,8 @@
 
 #include "../dfemtoolz_dMyLib.h"
 
+#include "../dBase/dConstants.h"
+
 class Geom_Node
 {
 protected:
@@ -53,6 +55,8 @@ public:
     double get_coordinate_Z() const;
 
     Geom_Node & operator =(const Geom_Node & otherGeom_Node);
+    bool operator       ==(const Geom_Node & otherGeom_Node);
+    bool operator        <(const Geom_Node & a) const;
     Geom_Node & operator +(const Geom_Node & otherGeom_Node);
     Geom_Node & operator -(const Geom_Node & otherGeom_Node);
 

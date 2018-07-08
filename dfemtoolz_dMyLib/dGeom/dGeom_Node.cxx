@@ -45,6 +45,22 @@ Geom_Node &Geom_Node::operator =(const Geom_Node &otherGeom_Node)
     return (*this );
 }
 
+bool Geom_Node::operator ==(const Geom_Node &otherGeom_Node)
+{
+    if (this->get_coordinate_X() == otherGeom_Node.get_coordinate_X())
+    if (this->get_coordinate_Y() == otherGeom_Node.get_coordinate_Y())
+    if (this->get_coordinate_Z() == otherGeom_Node.get_coordinate_Z())
+
+        return true;
+
+    return false;
+}
+
+bool Geom_Node::operator < (const Geom_Node & a) const
+{
+    return (this->get_coordinate_X() < a.get_coordinate_X());
+}
+
 Geom_Node &Geom_Node::operator +(const Geom_Node & otherGeom_Node)
 {
     for (int i = 0; i < 3; i++)

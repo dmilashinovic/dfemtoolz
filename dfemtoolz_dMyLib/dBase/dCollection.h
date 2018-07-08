@@ -43,10 +43,11 @@ template<class T>
 class Collection
 {
 private:
-    vector <T> m_vCollection;
     bool m_bFlag;
 
 public:
+
+    vector <T> m_vCollection;
 
     void insert(const T &item);
 
@@ -57,6 +58,9 @@ public:
     UINT get_size() const;
 
     void sort_collection();
+    void no_overlapping();
+
+    void make_duplicate_from(Collection <T> & otherCollection);
 
     void clear_collection();
     void Limin8(UINT itemID);
@@ -73,6 +77,7 @@ public:
     T& operator [] (UINT itemID);
 
     Collection();
+//    Collection(Collection <T> & otherCollection);
 };
 
 template <class T>
@@ -80,6 +85,15 @@ Collection<T>::Collection()
 {
     m_bFlag = false;
 }
+
+/*
+template <class T>
+Collection<T>::Collection(Collection & a <T>)
+{
+    m_bFlag = false;
+    vector <T> m_vCollection(Collection::m_vCollection);
+}
+*/
 
 template <class T>
 void Collection<T>::insert(const T & item)
@@ -115,6 +129,18 @@ template <class T>
 void Collection<T>::sort_collection()
 {
     sort(m_vCollection.begin(), m_vCollection.end());
+}
+
+template <class T>
+void Collection<T>::no_overlapping()
+{
+    m_vCollection.erase( unique( m_vCollection.begin(), m_vCollection.end() ), m_vCollection.end() );
+}
+
+template <class T>
+void Collection<T>::make_duplicate_from(Collection <T> & otherCollection)
+{
+    m_vCollection.swap(otherCollection.m_vCollection);
 }
 
 template <class T>
@@ -202,4 +228,4 @@ T& Collection<T>::operator [] (UINT itemID)
     return m_vCollection[itemID - 1];
 }
 
-#endif	/* _DGEOM_COLLECTION_H */
+#endif	/* _DCOLLECTION_H */

@@ -83,6 +83,7 @@ public:
     char   clear_and_set_this_boundary_to_nodes;
     char   add_this_boundary_to_all_nodes_outlet_or_inlet_faces;
     double near_node_tol;
+    double same_node_tol;
     double scale_facX;
     double scale_facY;
     double scale_facZ;

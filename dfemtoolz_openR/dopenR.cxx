@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dopenR.h"
@@ -81,16 +81,51 @@ int main()
         }
     }
 
-    vector <UINT> input_nodes_IDs;
-    vector <UINT> input_elements_IDs;
+    Collection <UINT> input_nodez_IDs;
+    Collection <UINT> input_elementz_IDs;
+
+    Collection <Mesh_Node> surface_nodez;
+
+    for (UINT j = 1; j <= nodez.get_size(); j++)
+    if (nodez[j].is_velocity_boundary())
+    {
+        surface_nodez.insert(nodez[j]);
+        surface_nodez[surface_nodez.get_size()].set_ID(j);
+    }
+
+    surface_nodez.sort_collection();
+    stl_input_nodes.sort_collection();
+    stl_input_nodes.no_overlapping();
+
+    UINT surface_to_mesh_Xmin_node = 1;
+
+    {
+        UINT one = 1;
+
+        for (UINT j = 1; j <= surface_nodez.get_size(); j++)
+        if (these_nodes_are_the_same(stl_input_nodes[one], surface_nodez[j], params->same_node_tol))
+        {
+            surface_to_mesh_Xmin_node = j - 1;
+            if (surface_to_mesh_Xmin_node == 0)
+                surface_to_mesh_Xmin_node = 1;
+            break;
+        }
+    }
 
     for (UINT i = 1; i <= stl_input_nodes.get_size(); i++)
-    for (UINT j = 1; j <= nodez.get_size(); j++)
-    if(these_nodes_are_the_same(stl_input_nodes[i], nodez[j]))
-        input_nodes_IDs.push_back(j);
+    for (UINT j = surface_to_mesh_Xmin_node; j <= surface_nodez.get_size(); j++)
+    if (!surface_nodez[j].get_flag())
+    if(these_nodes_are_the_same(stl_input_nodes[i], surface_nodez[j], params->same_node_tol))
+    {
+        surface_nodez[j].set_flag(true);
+        input_nodez_IDs.insert(surface_nodez[j].get_ID());
 
-    sort( input_nodes_IDs.begin(), input_nodes_IDs.end() );
-    input_nodes_IDs.erase( unique( input_nodes_IDs.begin(), input_nodes_IDs.end() ), input_nodes_IDs.end() );
+        break;
+    }
+
+    input_nodez_IDs.sort_collection();
+    input_nodez_IDs.no_overlapping();
+
 
     tmeshing::put_surface_facetz(params->materialID_of_outlet_or_inlet, surface_facets, elements, nodez);
 
@@ -103,13 +138,13 @@ int main()
         for (UINT i = 1; i <= surface_facets.get_size(); i++)
         {
             if (elements[1].how_many_nodes_per_element() == constants::BRICK)
-            for (UINT j = 0; j < input_nodes_IDs.size(); j++)
+            for (UINT j = 1; j <= input_nodez_IDs.get_size(); j++)
             {
                 if (
-                (surface_facets[i].get_node(1) != input_nodes_IDs[j]) &&
-                (surface_facets[i].get_node(2) != input_nodes_IDs[j]) &&
-                (surface_facets[i].get_node(3) != input_nodes_IDs[j]) &&
-                (surface_facets[i].get_node(4) != input_nodes_IDs[j]))
+                (surface_facets[i].get_node(1) != input_nodez_IDs[j]) &&
+                (surface_facets[i].get_node(2) != input_nodez_IDs[j]) &&
+                (surface_facets[i].get_node(3) != input_nodez_IDs[j]) &&
+                (surface_facets[i].get_node(4) != input_nodez_IDs[j]))
                     continue;
 
                 edge[1].set_ID(i);
@@ -140,13 +175,13 @@ int main()
             {
                 int triple_check = 0;
 
-                for (UINT j = 0; j < input_nodes_IDs.size(); j++)
+                for (UINT j = 1; j <= input_nodez_IDs.get_size(); j++)
                 {
-                    if (surface_facets[i].get_node(1) == input_nodes_IDs[j])
+                    if (surface_facets[i].get_node(1) == input_nodez_IDs[j])
                         triple_check++;
-                    if (surface_facets[i].get_node(2) == input_nodes_IDs[j])
+                    if (surface_facets[i].get_node(2) == input_nodez_IDs[j])
                         triple_check++;
-                    if (surface_facets[i].get_node(3) == input_nodes_IDs[j])
+                    if (surface_facets[i].get_node(3) == input_nodez_IDs[j])
                         triple_check++;
                 }
 
@@ -204,7 +239,8 @@ int main()
                 if (no_of_inlet_or_outlet_edges_on_a_face_should_be_twice_no_of_faces < 8)
                     surface_facets[i].set_flag(false);
             }
-/*
+/// was under comment to *** for github version of the software
+
             if (elements[1].how_many_nodes_per_element() == constants::TETRA)
             {
                 for  (int k = 1; k <= 3; k++)
@@ -225,7 +261,7 @@ int main()
                 if (no_of_inlet_or_outlet_edges_on_a_face_should_be_twice_no_of_faces < 6)
                     surface_facets[i].set_flag(false);
             }
-*/
+/// comment to this point ***
 
             no_of_inlet_or_outlet_edges_on_a_face_should_be_twice_no_of_faces = 0;
         }
@@ -306,7 +342,6 @@ int main()
         no_of_nodez_lets++;
         no_of_faces_lets++;
     }
-
 
     /// for now works only for brick mesh
     if (params->stl_or_fal_input == constants::fal)
@@ -390,7 +425,6 @@ int main()
 
         if (params->print_pos_init_velocity)
             pos_printer->print_initial_nodes_velocity_vectors_to_pos_file(initial_nodes, "output/init_velocity.pos");
-
 
         if (params->print_pos_inlet_or_outlet)
         {

@@ -58,6 +58,7 @@ openR_Parameters::openR_Parameters()
     clear_and_set_this_boundary_to_nodes = 0;
     add_this_boundary_to_all_nodes_outlet_or_inlet_faces = 0;
     near_node_tol = 0.05;
+    same_node_tol = 0.001;
     scale_facX = 1.0;
     scale_facY = 1.0;
     scale_facZ = 1.0;
@@ -205,6 +206,10 @@ bool openR_Parameters::read_file()
     reading::get_line_that_contains_this_string_and_close_the_file(line, "nearNodeTol", m_sPath_and_FileName);
     sscanf(line, "%*s%lf", &tmp_d);
     near_node_tol = tmp_d;
+
+    reading::get_line_that_contains_this_string_and_close_the_file(line, "sameNodeTol", m_sPath_and_FileName);
+    sscanf(line, "%*s%lf", &tmp_d);
+    same_node_tol = tmp_d;
 
     reading::get_line_that_contains_this_string_and_close_the_file(line, "scale_facX", m_sPath_and_FileName);
     sscanf(line, "%*s%lf", &tmp_d);
