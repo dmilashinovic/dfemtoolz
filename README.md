@@ -20,6 +20,8 @@ This package includes (in short words):
 
 * dfemtoolz_example-xx.tar.gz - set of examples
 
+* dfemtoolz_benchmark_tests.tar.gz - benchmark tests
+
 * dmilashinovic_dok_low_res.pdf - phd thesis
 
 In the given examples all the software tools are compiled as standalone - so user is able to execute them as command-line programs. In order to use these examples fully it is recommended that user have Tetgen software made by H.Si (wias-berlin.de/software/tetgen/) and Gmsh software made by C.Geuzaine and J.F.Remacle (gmsh.info) installed on his/hers computer (with Linux or Windows os). Tetgen is used to generate initial mesh, and Gmsh is used purely for visualization in these examples.
