@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dTimer.h"
@@ -105,15 +105,40 @@ double Timer::get_clock_count_from_start_to_now()
 
 void Timer::print_time_interval_in_seconds_from_start_to_end()
 {
-    cout << endl << " time used: " << ((double) ((m_cEnd - m_cStart) / CLOCKS_PER_SEC))  <<
+    cout << endl << " time used: " << this->get_time_interval_in_seconds_from_start_to_end() <<
     " seconds" << endl << endl;
 }
 
 void Timer::print_time_interval_in_seconds_from_start_to_now()
 {
-    clock_t time_now = clock();
-    cout << endl << " time used: " << ((double) ((time_now - m_cStart) / CLOCKS_PER_SEC)) <<
+    cout << endl << " time used: " << this->get_time_interval_in_seconds_from_start_to_now() <<
     " seconds" << endl << endl << endl <<
+    "          ...   " << endl << endl << endl;
+}
+
+void Timer::print_time_interval_in_miliseconds_from_start_to_end()
+{
+    cout << endl << " time used: " << this->get_time_interval_in_miliseconds_from_start_to_end() <<
+    " miliseconds" << endl << endl;
+}
+
+void Timer::print_time_interval_in_miliseconds_from_start_to_now()
+{
+    cout << endl << " time used: " << this->get_time_interval_in_miliseconds_from_start_to_now() <<
+    " miliseconds" << endl << endl << endl <<
+    "          ...   " << endl << endl << endl;
+}
+
+void Timer::print_time_interval_in_microseconds_from_start_to_end()
+{
+    cout << endl << " time used: " << this->get_time_interval_in_microseconds_from_start_to_end() <<
+    " microseconds" << endl << endl;
+}
+
+void Timer::print_time_interval_in_microseconds_from_start_to_now()
+{
+    cout << endl << " time used: " << this->get_time_interval_in_microseconds_from_start_to_now() <<
+    " microseconds" << endl << endl << endl <<
     "          ...   " << endl << endl << endl;
 }
 
