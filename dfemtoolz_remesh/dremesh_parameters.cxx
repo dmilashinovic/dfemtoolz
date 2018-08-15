@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dremesh_parameters.h"
@@ -27,12 +27,14 @@
 
 dremesh_Parameters::dremesh_Parameters()
 {
-    m_sPath_and_FileName = "input/parameters.cfg";
+    m_sPath_and_FileName = "input/dremesh_parameters.cfg";
 
     submodule = 1;
     inheritBoundary = 0;
     print_pos_nodes = 1;
     print_pos_elements = 0;
+
+    material_ID = 1;
 
     chekAllBrickElements = true;
     calculateVolumeOfTheModel = true;
@@ -49,8 +51,7 @@ dremesh_Parameters * dremesh_Parameters::create_dremesh_Parameters()
 dremesh_Parameters::~dremesh_Parameters()
 {}
 
-bool dremesh_Parameters::read_file
-()
+bool dremesh_Parameters::read_file()
 {
     Info * info = Info::createInfo();
     info->print_info_message("reading parameters... ");
@@ -63,6 +64,11 @@ bool dremesh_Parameters::read_file
         return false;
     sscanf(line, "%*s%d", &tmp);
     submodule = tmp;
+
+    if(!reading::get_line_that_contains_this_string_and_close_the_file(line, "material_ID", m_sPath_and_FileName))
+        return false;
+    sscanf(line, "%*s%d", &tmp);
+    material_ID = tmp;
 
     if(!reading::get_line_that_contains_this_string_and_close_the_file(line, "inheritBoundary", m_sPath_and_FileName))
         return false;

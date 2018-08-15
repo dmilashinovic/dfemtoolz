@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 /*
@@ -145,8 +145,15 @@ public:
     void print_quads_from_quadrilateral_elements_as_lines_into_pos
     (bool only_quads_with_flag, Collection <Geom_Element> & face_col, Collection <T> & node_col, string path_and_fileName);
     template <class T>
+    void print_quads_from_quadrilateral_elements_as_lines_into_pos
+    (UINT startID, UINT endID, bool only_quads_with_flag, Collection <Geom_Element> & face_col, Collection <T> & node_col, string path_and_fileName);
+    template <class T>
     void print_surface_quads_from_brick_elements_as_lines_into_pos
     (Collection <Geom_Element> & bric_col, Collection <T> & node_col, string path_and_fileName);
+    template <class T>
+    void print_triangles_from_triangle_elements_as_lines_into_pos
+    (UINT startID, UINT endID,
+    bool only_triangles_with_flag, Collection <Geom_Element> & face_col, Collection <T> & node_col, string path_and_fileName);
     template <class T>
     void print_triangles_from_triangle_elements_as_lines_into_pos
     (bool only_triangles_with_flag, Collection <Geom_Element> & face_col, Collection <T> & node_col, string path_and_fileName);
@@ -575,6 +582,41 @@ void POS_Printer::print_quads_from_quadrilateral_elements_as_lines_into_pos
 }
 
 template <class T>
+void POS_Printer::print_quads_from_quadrilateral_elements_as_lines_into_pos
+(UINT startID, UINT endID,
+bool only_quads_with_flag, Collection <Geom_Element> & face_col, Collection <T> & node_col, string path_and_fileName)
+{
+    Info * info = Info::createInfo();
+    info->print_info_message("printing file " + path_and_fileName);
+
+    ofstream output_file;
+    output_file.open(path_and_fileName.c_str());
+    output_file << "View \"quads\" {" << endl;
+
+    if (!only_quads_with_flag)
+    for (UINT i = startID; i <= endID; i++)
+        this->print_quad_into_pos(
+        node_col[face_col[i].get_node(1)],
+        node_col[face_col[i].get_node(2)],
+        node_col[face_col[i].get_node(3)],
+        node_col[face_col[i].get_node(4)],
+        output_file);
+
+    if (only_quads_with_flag)
+    for (UINT i = startID; i <= endID; i++)
+    if (face_col[i].get_flag())
+        this->print_quad_into_pos(
+        node_col[face_col[i].get_node(1)],
+        node_col[face_col[i].get_node(2)],
+        node_col[face_col[i].get_node(3)],
+        node_col[face_col[i].get_node(4)],
+        output_file);
+
+    output_file << endl << "};";
+    output_file.close();
+}
+
+template <class T>
 void POS_Printer::print_surface_quads_from_brick_elements_as_lines_into_pos
 (Collection <Geom_Element> & bric_col, Collection <T> & node_col, string path_and_fileName)
 {
@@ -685,6 +727,39 @@ void POS_Printer::print_triangles_from_triangle_elements_as_lines_into_pos
 
     if (only_triangles_with_flag)
     for (UINT i = 1; i <= face_col.get_size(); i++)
+    if (face_col[i].get_flag())
+        this->print_triangle_into_pos(
+        node_col[face_col[i].get_node(1)],
+        node_col[face_col[i].get_node(2)],
+        node_col[face_col[i].get_node(3)],
+        output_file);
+
+    output_file << endl << "};";
+    output_file.close();
+}
+
+template <class T>
+void POS_Printer::print_triangles_from_triangle_elements_as_lines_into_pos
+(UINT startID, UINT endID,
+bool only_triangles_with_flag, Collection <Geom_Element> & face_col, Collection <T> & node_col, string path_and_fileName)
+{
+    Info * info = Info::createInfo();
+    info->print_info_message("printing file " + path_and_fileName);
+
+    ofstream output_file;
+    output_file.open(path_and_fileName.c_str());
+    output_file << "View \"quads\" {" << endl;
+
+    if (!only_triangles_with_flag)
+    for (UINT i = startID; i <= endID; i++)
+        this->print_triangle_into_pos(
+        node_col[face_col[i].get_node(1)],
+        node_col[face_col[i].get_node(2)],
+        node_col[face_col[i].get_node(3)],
+        output_file);
+
+    if (only_triangles_with_flag)
+    for (UINT i = startID; i <= endID; i++)
     if (face_col[i].get_flag())
         this->print_triangle_into_pos(
         node_col[face_col[i].get_node(1)],

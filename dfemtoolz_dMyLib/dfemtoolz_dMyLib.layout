@@ -2,14 +2,69 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
+	<File name="dMesh\dTMeshing.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8036" topLine="232" />
+		</Cursor>
+	</File>
+	<File name="dMisc\dMisc_Functionz.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1178" topLine="30" />
+		</Cursor>
+	</File>
 	<File name="dBase\dError.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1026" topLine="3" />
 		</Cursor>
 	</File>
+	<File name="dBase\dSuperCollection.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1402" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="dGeom\dGeom_Element.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1967" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="dGeom\dGeom_Element.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1600" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="dPrin\dInfo.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2185" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="dPrin\dPOS_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="59" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="dGeom\dGeom_Node.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="561" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="dPrin\dSLI_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3909" topLine="117" />
+		</Cursor>
+	</File>
+	<File name="dPrin\dSLI_Printer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7342" topLine="223" />
+		</Cursor>
+	</File>
+	<File name="dMesh\dMesh_Boundary_and_Loads.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2267" topLine="44" />
+		</Cursor>
+	</File>
+	<File name="dMesh\dMesh_Boundary_and_Loads.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2806" topLine="63" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

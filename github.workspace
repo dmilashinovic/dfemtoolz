@@ -2,9 +2,15 @@
 <CodeBlocks_workspace_file>
 	<Workspace title="Workspace">
 		<Project filename="dfemtoolz_dMyLib/dfemtoolz_dMyLib.cbp" />
-		<Project filename="dfemtoolz_multimaterial/dfemtoolz_dmultimaterial.cbp" />
-		<Project filename="dfemtoolz_nolimit/dfemtoolz_dnolimit.cbp" />
-		<Project filename="dfemtoolz_openR/dopenR.cbp" />
 		<Project filename="dfemtoolz_remesh/dfemtoolz_remesh.cbp" />
+		<Project filename="dfemtoolz_nolimit/dfemtoolz_dnolimit.cbp" />
+		<Project filename="dfemtoolz_multimaterial/dfemtoolz_dmultimaterial.cbp" />
+		<Project filename="dfemtoolz_openR/dopenR.cbp" />
+		<Project filename="case1-fluid-flow_program/case1-fluid-flow_program.cbp" />
+		<Project filename="case2-static-pressure_program/case2-static-pressure_program.cbp" />
+		<Project filename="case3-structural_program/case3-structural_program.cbp" />
+		<Project filename="case4-solid-fluid_program/case4-solid-fluid_program.cbp" />
+		<Project filename="dfemtoolz_openR_benchmark/dopenR_benchmark.cbp" />
+		<Project filename="dfemtoolz_remesh_benchmark/dfemtoolz_remesh_benchmark.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

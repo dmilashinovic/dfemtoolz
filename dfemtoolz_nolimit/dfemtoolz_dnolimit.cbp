@@ -59,7 +59,6 @@
 		<Unit filename="../dfemtoolz_dMyLib/dMisc/dSTL_Triangle.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dMisc/dTimer.cxx" />
 		<Unit filename="../dfemtoolz_dMyLib/dMisc/dTimer.h" />
-		<Unit filename="../dfemtoolz_dMyLib/dfemtoolz_dMyLib.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dPost/dPost_Node.cxx" />
 		<Unit filename="../dfemtoolz_dMyLib/dPost/dPost_Node.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dInfo.cxx" />
@@ -86,8 +85,11 @@
 		<Unit filename="../dfemtoolz_dMyLib/dRead/dTetgen_Reader.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dRead/dUNV_Reader.cxx" />
 		<Unit filename="../dfemtoolz_dMyLib/dRead/dUNV_Reader.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dfemtoolz_dMyLib.h" />
 		<Unit filename="dnolimit.cxx" />
 		<Unit filename="dnolimit.h" />
+		<Unit filename="dnolimitF.cxx" />
+		<Unit filename="dnolimitF.h" />
 		<Unit filename="dnolimit_parameters.cxx" />
 		<Unit filename="dnolimit_parameters.h" />
 		<Extensions>

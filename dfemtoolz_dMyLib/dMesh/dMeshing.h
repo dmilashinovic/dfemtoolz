@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 /*
@@ -56,6 +56,8 @@
 
 namespace meshing
 {
+    void clear_all_neighbours_lists(Collection <Mesh_Node> & node_col);
+
     void create_27nodal_from_8nodal_bricks
     (Collection <Mesh_Node> & node_col, Collection <Geom_Element> & face_col, Collection <Geom_Element> & elem_col);
     Geom_Element create_face9
@@ -69,6 +71,7 @@ namespace meshing
 
     void get_8_bricks_from_27_brick
     (vector <Geom_Element> & eight_bricks, Geom_Element & brick);
+    int get_3_or_4_bricks_from_14_prism_or_15_tetrahedron(vector <Geom_Element> & four_bricks, Geom_Element & element);
     void get_4_bricks_from_15_tetrahedron
     (vector <Geom_Element> & four_bricks, Geom_Element & tetrahedron);
     void get_3_bricks_from_14_prism

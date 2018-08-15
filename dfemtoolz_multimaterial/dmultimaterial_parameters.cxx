@@ -1,34 +1,38 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 
 #include "dmultimaterial_parameters.h"
 
+void multimaterial_Parameters::set_params_filename(string filename)
+{
+    m_sPath_and_FileName = filename;
+}
 
 multimaterial_Parameters::multimaterial_Parameters()
 {
-    m_sPath_and_FileName = "input/parameters.cfg";
+    m_sPath_and_FileName = "input/dmultimaterial_parameters.cfg";
 
     print_pos_nodes = 1;
     print_pos_elements = 0;

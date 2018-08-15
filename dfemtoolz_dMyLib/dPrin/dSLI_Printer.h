@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 /*
@@ -334,6 +334,9 @@ void SLI_Printer::print_bricks_from_15node_tetrahedrons_and_14node_prisms
 
         for (UINT i = 1; i <= elem_col.get_size(); i++)
         {
+            for (int m = 0; m < 4; m++)
+                bricks[m].set_material_ID(elem_col[i].get_material_ID());
+
             if (elem_col[i].how_many_nodes_per_element() == 15)
             {
                 meshing::get_4_bricks_from_15_tetrahedron(bricks, elem_col[i]);

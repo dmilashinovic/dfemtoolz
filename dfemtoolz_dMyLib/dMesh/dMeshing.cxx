@@ -1,31 +1,37 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dMeshing.h"
 
 namespace meshing
 {
+    void clear_all_neighbours_lists(Collection <Mesh_Node> & node_col)
+    {
+        for (UINT i = 1; i <= node_col.get_size(); i++)
+            node_col[i].clear_all_neighbours();
+    }
+
     void create_27nodal_from_8nodal_bricks
     (Collection <Mesh_Node> & node_col, Collection <Geom_Element> & face_col, Collection <Geom_Element> & elem_col)
     {
@@ -346,6 +352,21 @@ namespace meshing
         eight_bricks[7].set_node(brick.get_node(16), 6);
         eight_bricks[7].set_node(brick.get_node(23), 7);
         eight_bricks[7].set_node(brick.get_node(15), 8);
+    }
+
+    int get_3_or_4_bricks_from_14_prism_or_15_tetrahedron(
+    vector <Geom_Element> & four_bricks,
+    Geom_Element & element)
+    {
+        if (element.how_many_nodes_per_element() == 14)
+        {
+            get_3_bricks_from_14_prism(four_bricks, element);
+            return constants::PRISM;
+        }
+
+        if (element.how_many_nodes_per_element() == 15)
+            get_4_bricks_from_15_tetrahedron(four_bricks, element);
+        return constants::TETRA;
     }
 
     void get_4_bricks_from_15_tetrahedron
