@@ -1,0 +1,14 @@
+Hello and thank you for your interest in dfemtoolz
+
+
+Please note that all .node and .ele files are products of Tetgen software usage (wias-berlin.de/software/tetgen/). Author of Tetgen software is Hang Si.
+
+Line that was used to create these .ele and .node files is:
+
+tetgen -pq1.1 -Y file-name.stl
+
+Number 1.1 can be different to match user requirements.
+
+
+Thank you for your interest
+dmilashinovic ..::at::.. gmail.com
