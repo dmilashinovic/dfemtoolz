@@ -23,7 +23,8 @@ Output:
 for i=1 to number of materials (defined with 2 separate .stl files)  do
 
 	2
-	Call the Tetgen to generate unstructured tetrahedral mesh for i-th material (input: .stl files; output: .node .ele files).
+	Call the Tetgen to generate unstructured tetrahedral mesh 
+	for i-th material (input: .stl files; output: .node .ele files).
 	(this was done, and .node and .ele files are in input/ directory)
 
 3
@@ -33,7 +34,9 @@ end for
 for i=1 to number of materals (2) do
 
 	5
-	Call the dfemtoolz_remesh module to recognize model/material surface and (depending on user preference to element type tetrahedral/hexahedral) export tetrahedral2 mesh of the i-th material.
+	Call the dfemtoolz_remesh module to recognize model/material 
+	surface and (depending on user preference to element type 
+	tetrahedral/hexahedral) export tetrahedral2 mesh of the i-th material.
 
 6
 end for
@@ -45,7 +48,8 @@ Call the dfemtoolz_multimaterial module to merge independently generated meshes-
 for i=1 to number of .stl files that define surfaces for fixations(1)/outlet(1)/inlet(1) of this model do
 
 	9
-	Set BCs and referring material for the i-th load-surface (fixations/ outlet/ inlet).
+	Set BCs and referring material for the i-th load-surface 
+	(fixations/ outlet/ inlet).
 	(this was done, and .cfg files are configured in input/ directory) 
 
 	10
@@ -56,4 +60,7 @@ end for
 
 In output/ directory user can find the results. Output files can be different if user modify settings in .cfg files.
 
-Final results are in final-output.zip package as well.
+Final results are zipped in output/
+
+Thank you for your interest
+dmilashinovic ..::at::.. gmail.com

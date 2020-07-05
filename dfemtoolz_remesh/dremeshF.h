@@ -50,7 +50,19 @@
 #include "dremesh_parameters.h"
 
 
-int dremesh_get_elems(Collection <Mesh_Node> & nodes_collection, Collection <Geom_Element>  & elements_collection, string Tetgen_node_fileName, string Tetgen_elem_fileName, string Femap_dat_fileName);
+int dremesh_get_elems
+(Collection <Mesh_Node> & nodes_collection,
+Collection <Geom_Element>  & elements_collection,
+string Tetgen_node_fileName, string Tetgen_elem_fileName, string Femap_dat_fileName);
+
+int dremesh_get_elemsF(
+int mesh_element_type,
+Collection <Mesh_Node> & nodes_collection,
+Collection <Geom_Element>  & elements_collection,
+string Tetgen_node_fileName,
+string Tetgen_elem_fileName,
+string Femap_dat_fileName);
+
 
 #endif	/* _REMESHF_H */
 

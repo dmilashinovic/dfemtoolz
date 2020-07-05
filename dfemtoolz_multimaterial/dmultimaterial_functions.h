@@ -39,6 +39,7 @@
 #include "../dfemtoolz_dMyLib/dfemtoolz_dMyLib.h"
 
 #include "../dfemtoolz_dMyLib/dBase/dCollection.h"
+#include "../dfemtoolz_dMyLib/dBase/dSuperCollection.h"
 #include "../dfemtoolz_dMyLib/dBase/dConstants.h"
 
 #include "../dfemtoolz_dMyLib/dGeom/dGeom_Node.h"
@@ -53,12 +54,63 @@
 #include "../dfemtoolz_dMyLib/dInit/dInit_Node.h"
 
 
+
 bool put_contact_edges(
 UINT elementID,
 Collection <Mesh_Node> & nodez_col,
 Geom_Element & one_brick_element,
 Collection <Geom_Element> & contact_faces_col,
 UINT & current_no_of_contact_surfaces);
+
+bool put_contact_edges_first(
+UINT elementID,
+Collection <Mesh_Node> & nodez_col,
+Geom_Element & one_brick_element,
+Collection <Geom_Element> & contact_faces_col,
+UINT & material2ID,
+SuperCollection <UINT> & refs_to_contact_surfaces);
+
+bool put_contact_edges_second(
+UINT elementID,
+Collection <Mesh_Node> & nodez_col,
+Geom_Element & one_brick_element,
+Collection <Geom_Element> & contact_faces_col,
+Collection <Geom_Element> & second_elem_col,
+SuperCollection <UINT> & refs_to_contact_surfaces);
+
+UINT assign_contact_surface_ID
+(UINT material1_ID, UINT material2_ID, SuperCollection <UINT> &refs_2_contact_surfs);
+
+bool put_contact_edges_first(
+UINT elementID,
+Collection <Mesh_Node> & nodez_col,
+Geom_Element & one_brick_element,
+Collection <Geom_Element> & contact_faces_col,
+UINT & material2ID,
+UINT & cur_no_of_contacts);
+
+bool put_contact_edges_second(
+UINT elementID,
+Collection <Mesh_Node> & nodez_col,
+Geom_Element & one_brick_element,
+Collection <Geom_Element> & contact_faces_col,
+Collection <Geom_Element> & second_elem_col,
+UINT & cur_no_of_contacts);
+
+bool put_contact_edges_first(
+UINT elementID,
+Collection <Mesh_Node> & nodez_col,
+Geom_Element & one_brick_element,
+Collection <Geom_Element> & contact_faces_col,
+UINT & material2ID);
+
+bool put_contact_edges_second(
+UINT elementID,
+Collection <Mesh_Node> & nodez_col,
+Geom_Element & one_brick_element,
+Collection <Geom_Element> & contact_faces_col,
+Collection <Geom_Element> & second_elem_col);
+
 
 #endif	/* _MULTIMATERIAL_FUNCTIONS_H */
 

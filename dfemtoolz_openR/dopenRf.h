@@ -77,6 +77,16 @@ Collection <Geom_Element> & input_faces_from_fal,
 string parameters_path_and_filename,
 string input_file_path_and_name);
 
+UINT dopenR(
+Collection <Mesh_Node> & nodez,
+Collection <Geom_Element> & elements,
+Collection <Geom_Element> & initial_faces,
+Collection <Geom_Element> & contact_faces,
+Collection <Geom_Element> & surface_facets,
+Collection <Geom_Element> & input_faces_from_fal,
+string input_file_path_and_name,
+UINT material_ID);
+
 
 #endif	/* _OPENRF_H */
 

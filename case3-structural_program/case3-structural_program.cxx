@@ -42,9 +42,10 @@ int main()
     timer->set_start_time();
 
 
-    /// POS printer created
+    /// printers created
 
     POS_Printer * pos_printer = POS_Printer::create_POS_Printer();
+    VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
 
 
     /// super-collections and collections for storing data created (for each material)
@@ -69,6 +70,7 @@ int main()
 
             nodez.insert(nodes_collection);
             elements.insert(elements_collection);
+
             dremesh_get_elems(nodez[i], elements[i], "input/" + utos(i)+ ".1.node", "input/" + utos(i)+ ".1.ele", "");
         }
     }
@@ -89,9 +91,11 @@ int main()
 
             string
             contact_name ;
-            contact_name = "output/contact" + utos(i-1) + ".pos";
+            contact_name = "output/contact" + utos(i-1);
 
             dmultimaterialF(nodez[1], nodez[i], elements[1], elements[i], initial_faces, contact_faces, "input/dmultimaterial_parameters.cfg");
+
+//            dmultimaterialF(nodez[1], nodez[i], elements[1], elements[i], initial_faces, contact_faces);
 
             contact_facesIDper_material.insert(contact_faces.get_size());
 
@@ -101,16 +105,26 @@ int main()
                 if (elements[1][1].how_many_nodes_per_element() == constants::BRICK)
                     pos_printer->print_quads_from_quadrilateral_elements_as_lines_into_pos
                     (contact_facesIDper_material[i-1]+1, contact_facesIDper_material[i],
-                    true, contact_faces, nodez[1], contact_name);
+                    true, contact_faces, nodez[1], contact_name + ".pos");
+
+                if (elements[1][1].how_many_nodes_per_element() == constants::BRICK)
+                    vtk_printer->print_quads_to_vtk_file
+                    (contact_facesIDper_material[i-1]+1, contact_facesIDper_material[i],
+                    true, contact_faces, nodez[1], contact_name + ".vtk");
 
                 if (elements[1][1].how_many_nodes_per_element() == constants::TETRA)
                     pos_printer->print_triangles_from_triangle_elements_as_lines_into_pos
                     (contact_facesIDper_material[i-1]+1, contact_facesIDper_material[i],
-                    true, contact_faces, nodez[1], contact_name);
+                    true, contact_faces, nodez[1], contact_name + ".pos");
+
+                if (elements[1][1].how_many_nodes_per_element() == constants::TETRA)
+                    vtk_printer->print_triangles_to_vtk_file
+                    (contact_facesIDper_material[i-1]+1, contact_facesIDper_material[i],
+                    true, contact_faces, nodez[1], contact_name + ".vtk");
             }
 
             /// if needed - user can save each contact collection
-    //        contact_faces.clear_collection();
+            // contact_faces.clear_collection();
         }
     }
 
@@ -119,25 +133,39 @@ int main()
 
     /// dfemtoolz_openR
     UINT no_of_nodez =
-    dopenR(nodez[1], elements[1], initial_faces, contact_faces, surface_facets, input_faces_from_fal, "input/dopenR_parameters.cfg", "input/_pressureCircle");
+    dopenR(nodez[1], elements[1], initial_faces, contact_faces, surface_facets, input_faces_from_fal, "input/dopenR_parameters.cfg", "input/_pressureCircle.stl");
+
 
     /// printing BC patch
+
     if (elements[1][1].how_many_nodes_per_element() == constants::BRICK)
         pos_printer->print_quads_from_quadrilateral_elements_as_lines_into_pos(true, surface_facets, nodez[1], "output/pressure_surface.pos");
     if (elements[1][1].how_many_nodes_per_element() == constants::TETRA)
         pos_printer->print_triangles_from_triangle_elements_as_lines_into_pos(true, surface_facets, nodez[1], "output/pressure_surface.pos");
 
+    if (elements[1][1].how_many_nodes_per_element() == constants::BRICK)
+        vtk_printer->print_quads_to_vtk_file(true, surface_facets, nodez[1], "output/pressure_surface.vtk");
+    if (elements[1][1].how_many_nodes_per_element() == constants::TETRA)
+        vtk_printer->print_triangles_to_vtk_file(true, surface_facets, nodez[1], "output/pressure_surface.vtk");
 
-    /// POS elements
+
+    /// POS and VTK elements
 
     if (elements[1][1].how_many_nodes_per_element() == constants::BRICK)
         pos_printer->print_elems_with_material_to_pos_file
         (elements[1], constants::POS_BRICK, nodez[1], "output/elements_mat.pos");
 
+    if (elements[1][1].how_many_nodes_per_element() == constants::BRICK)
+        vtk_printer->print_brick_elems_material_2_vtk_file(
+        elements[1], nodez[1], "output/elements_mat.vtk");
 
     if (elements[1][1].how_many_nodes_per_element() == constants::TETRA)
         pos_printer->print_elems_with_material_to_pos_file
         (elements[1], constants::POS_TETRA, nodez[1], "output/elements_mat.pos");
+
+    if (elements[1][1].how_many_nodes_per_element() == constants::TETRA)
+        vtk_printer->print_tetrahedron_elems_material_2_vtk_file(
+        elements[1], nodez[1], "output/elements_mat.vtk");
 
     info->print_info_message("printing SLI file...");
 

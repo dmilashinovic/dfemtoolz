@@ -38,6 +38,11 @@ openR_Parameters::openR_Parameters()
     print_pos_init_velocity = 0;
     print_pos_inlet_or_outlet = 0;
     print_pos_surface = 1;
+
+    print_vtk_elements = 0;
+    print_vtk_inlet_or_outlet = 0;
+    print_vtk_surface = 0;
+
     plane_defined_with_nodes = 1;
     plane_nodeA = 1;
     plane_nodeB = 2;
@@ -103,6 +108,10 @@ bool openR_Parameters::read_file()
     sscanf(line, "%*s%d", &tmp);
     print_pos_elements = (bool) tmp;
 
+    reading::get_line_that_contains_this_string_and_close_the_file(line, "vtkElements", m_sPath_and_FileName);
+    sscanf(line, "%*s%d", &tmp);
+    print_vtk_elements = (bool) tmp;
+
     reading::get_line_that_contains_this_string_and_close_the_file(line, "posInitVel", m_sPath_and_FileName);
     sscanf(line, "%*s%d", &tmp);
     print_pos_init_velocity = (bool) tmp;
@@ -111,9 +120,17 @@ bool openR_Parameters::read_file()
     sscanf(line, "%*s%d", &tmp);
     print_pos_inlet_or_outlet = (bool) tmp;
 
+    reading::get_line_that_contains_this_string_and_close_the_file(line, "vtkInletOrOutlet", m_sPath_and_FileName);
+    sscanf(line, "%*s%d", &tmp);
+    print_vtk_inlet_or_outlet = (bool) tmp;
+
     reading::get_line_that_contains_this_string_and_close_the_file(line, "posSurface", m_sPath_and_FileName);
     sscanf(line, "%*s%d", &tmp);
     print_pos_surface = (bool) tmp;
+
+    reading::get_line_that_contains_this_string_and_close_the_file(line, "vtkSurface", m_sPath_and_FileName);
+    sscanf(line, "%*s%d", &tmp);
+    print_vtk_surface = (bool) tmp;
 
     reading::get_line_that_contains_this_string_and_close_the_file(line, "plane_defined_with_nodes", m_sPath_and_FileName);
     sscanf(line, "%*s%d", &tmp);

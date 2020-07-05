@@ -32,6 +32,7 @@ nolimit_Parameters::nolimit_Parameters()
     calculate_surface = 1;
     print_pos_nodes = 1;
     print_pos_elements = 0;
+    print_vtk_elements = 0;
     scale_facX = 1.0;
     scale_facY = 1.0;
     scale_facZ = 1.0;
@@ -75,6 +76,11 @@ bool nolimit_Parameters::read_file()
         return false;
     sscanf(line, "%*s%d", &tmp);
     print_pos_elements = (bool) tmp;
+
+    if(!reading::get_line_that_contains_this_string_and_close_the_file(line, "vtkElements", m_sPath_and_FileName))
+        return false;
+    sscanf(line, "%*s%d", &tmp);
+    print_vtk_elements = (bool) tmp;
 
     if(!reading::get_line_that_contains_this_string_and_close_the_file(line, "scaleFacX", m_sPath_and_FileName))
         return false;

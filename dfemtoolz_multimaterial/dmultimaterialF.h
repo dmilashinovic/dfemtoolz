@@ -57,6 +57,7 @@
 
 #include "../dfemtoolz_dMyLib/dPrin/dPrinting.h"
 #include "../dfemtoolz_dMyLib/dPrin/dPOS_Printer.h"
+#include "../dfemtoolz_dMyLib/dPrin/dVTK_Printer.h"
 #include "../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h"
 #include "../dfemtoolz_dMyLib/dPrin/dInfo.h"
 
@@ -75,8 +76,35 @@ Collection <Geom_Element> & modelAelements,
 Collection <Geom_Element> & modelBelements,
 Collection <Geom_Element> & init_faces,
 Collection <Geom_Element> & contact_faces,
-string parameters_path_and_filename)
-;
+string parameters_path_and_filename);
+
+
+int dmultimaterialF(
+Collection <Mesh_Node> & modelAnodes,
+Collection <Mesh_Node> & modelBnodes,
+Collection <Geom_Element> & modelAelements,
+Collection <Geom_Element> & modelBelements,
+Collection <Geom_Element> & init_faces,
+Collection <Geom_Element> & contact_faces);
+
+int dmultimaterialF(
+Collection <Mesh_Node> & modelAnodes,
+Collection <Mesh_Node> & modelBnodes,
+Collection <Geom_Element> & modelAelements,
+Collection <Geom_Element> & modelBelements,
+Collection <Geom_Element> & init_faces,
+Collection <Geom_Element> & contact_faces_side0,
+Collection <Geom_Element> & contact_faces_side1,
+UINT & current_no_of_contacts);
+
+int dmultimaterialF(
+Collection <Mesh_Node> & modelAnodes,
+Collection <Mesh_Node> & modelBnodes,
+Collection <Geom_Element> & modelAelements,
+Collection <Geom_Element> & modelBelements,
+Collection <Geom_Element> & init_faces,
+SuperCollection <Geom_Element> & contact_faces_supercol,
+Collection <UINT> & contact_faces_supercol_checksums);
 
 
 #endif	/* _MULTIMATERIALF_H */

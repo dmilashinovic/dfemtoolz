@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dGeom_Functions.h"
@@ -269,6 +269,35 @@ Geom_Node get_normal_vector_coordinates
     normal_vector.set_coordinate_X(coord[1]);
     normal_vector.set_coordinate_Y(coord[2]);
     normal_vector.set_coordinate_Z(coord[3]);
+
+    return normal_vector;
+}
+
+Geom_Node get_normal_vector_coordinates(Collection <STL_Triangle> & triangle_col)
+{
+    Geom_Node normal_vector;
+
+    double sum_coord[4];
+
+    sum_coord[1] = 0;
+    sum_coord[2] = 0;
+    sum_coord[3] = 0;
+
+    for (UINT j = 1; j <= triangle_col.get_size(); j++)
+    {
+        normal_vector = get_normal_vector_coordinates(
+        triangle_col[j].node1,
+        triangle_col[j].node2,
+        triangle_col[j].node3);
+
+        sum_coord[1] += normal_vector.get_coordinate_X();
+        sum_coord[2] += normal_vector.get_coordinate_Y();
+        sum_coord[3] += normal_vector.get_coordinate_Z();
+    }
+
+    for (UINT i = 1; i <= 3; i++)
+        normal_vector.set_coordinate(sum_coord[i], i);
+
     return normal_vector;
 }
 
@@ -389,6 +418,12 @@ double get_cos_of_angle_4_vectors(Geom_Node & vecA, Geom_Node & vecB)
     dot_product(vecA, vecB) / (get_the_vector_intensity(vecA) * get_the_vector_intensity(vecB));
 }
 
+Geom_Node get_average_vector_of_vecA_and_vecB(Geom_Node & vecA, Geom_Node & vecB)
+{
+    double half = 0.5;
+    Geom_Node sum = get_vector_sum_vecA_plus_vecB(vecA, vecB);
+    return get_product_scalar_vector(half, sum);
+}
 
 /// CHECK ELEMENT
 

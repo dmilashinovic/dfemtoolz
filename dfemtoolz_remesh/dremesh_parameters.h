@@ -59,6 +59,7 @@ public:
     bool inheritBoundary;
     bool print_pos_nodes;
     bool print_pos_elements;
+    bool print_vtk_elements;
     bool chekAllBrickElements;
     bool calculateVolumeOfTheModel;
 

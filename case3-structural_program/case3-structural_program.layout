@@ -2,19 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="..\dfemtoolz_dMyLib\dPrin\dPOS_Printer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="case3-structural_program.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6770" topLine="148" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_openR\dopenRf.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="15875" topLine="404" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_dMyLib\dMesh\dTMeshing.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9397" topLine="268" />
+			<Cursor1 position="1863" topLine="52" />
 		</Cursor>
 	</File>
 	<File name="..\dfemtoolz_remesh\dTetg_tetra\dremesh4Tetgen_tetraF.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -22,29 +12,42 @@
 			<Cursor1 position="5063" topLine="155" />
 		</Cursor>
 	</File>
+	<File name="..\dfemtoolz_multimaterial\dmultimaterialF.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2439" topLine="64" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_openR\dopenRf.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5059" topLine="126" />
+		</Cursor>
+	</File>
 	<File name="..\dfemtoolz_remesh\dremesh_parameters.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3341" topLine="72" />
 		</Cursor>
 	</File>
+	<File name="..\dfemtoolz_dMyLib\dMesh\dTMeshing.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9397" topLine="268" />
+		</Cursor>
+	</File>
+	<File name="case3-structural_program.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2845" topLine="88" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dPrin\dPOS_Printer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6770" topLine="148" />
+		</Cursor>
+	</File>
 	<File name="..\dfemtoolz_multimaterial\dmultimaterialF.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2052" topLine="53" />
+			<Cursor1 position="6012" topLine="143" />
 		</Cursor>
-	</File>
-	<File name="case3-structural_program.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="593" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_multimaterial\dmultimaterialF.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2493" topLine="72" />
-		</Cursor>
-	</File>
-	<File name="case3-structural_program.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="70" />
-		</Cursor>
+		<Folding>
+			<Collapse line="254" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>

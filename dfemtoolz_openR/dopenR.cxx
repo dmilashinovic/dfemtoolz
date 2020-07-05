@@ -47,7 +47,7 @@ int main()
         sli_reader->read_file(nodez, elements, "input/simple_list.sli");
     }
 
-    UINT no_of_nodez = dopenR(nodez, elements, initial_faces, contact_faces, surface_facets, input_faces_from_fal, "input/dopenR_parameters.cfg", "input/input");
+    UINT no_of_nodez = dopenR(nodez, elements, initial_faces, contact_faces, surface_facets, input_faces_from_fal, "input/dopenR_parameters.cfg", "input/input.stl");
 
     if (params->print_pos_nodes || params->print_pos_elements ||
     params->print_pos_init_velocity || params->print_pos_inlet_or_outlet || params->print_pos_surface)
@@ -91,6 +91,49 @@ int main()
             if (elements[1].how_many_nodes_per_element() == constants::TETRA)
                 pos_printer->print_triangles_from_triangle_elements_as_lines_into_pos(false, surface_facets, nodez, "output/surface_of_material_you_picked.pos");
         }
+    }
+
+
+    if (params->print_vtk_elements || params->print_vtk_inlet_or_outlet || params->print_vtk_surface)
+    {
+        VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
+
+        if (params->print_vtk_elements)
+        {
+            if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+            vtk_printer->print_brick_elems_nodes_boundary_2_vtk_file(
+            elements, nodez, "output/elements.vtk");
+
+            if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+            vtk_printer->print_tetrahedron_elems_material_2_vtk_file(
+            elements, nodez, "output/elements.vtk");
+        }
+
+        if (params->print_vtk_inlet_or_outlet )
+        {
+            if (params->stl_or_fal_input != constants::fal)
+            if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+                vtk_printer->print_quads_to_vtk_file(true, surface_facets, nodez, "output/outlet_or_inlet.vtk");
+
+            if (params->stl_or_fal_input != constants::fal)
+            if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+                vtk_printer->print_triangles_to_vtk_file(true, surface_facets, nodez, "output/outlet_or_inlet.vtk");
+
+            if (params->stl_or_fal_input == constants::fal)
+                vtk_printer->print_triangles_to_vtk_file(input_faces_from_fal, nodez, "output/outlet_or_inlet.vtk");
+        }
+
+        if (params->print_vtk_surface)
+        {
+            if (params->stl_or_fal_input != constants::fal)
+            if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+                vtk_printer->print_quads_to_vtk_file(false, surface_facets, nodez, "output/surface_of_material_you_picked.vtk");
+
+            if (params->stl_or_fal_input != constants::fal)
+            if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+                vtk_printer->print_triangles_to_vtk_file(false, surface_facets, nodez, "output/surface_of_material_you_picked.vtk");
+        }
+
     }
 
     SLI_Printer * sli_printer = SLI_Printer::create_SLI_Printer();

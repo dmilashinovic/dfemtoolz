@@ -42,9 +42,10 @@ int main()
     timer->set_start_time();
 
 
-    /// POS printer created
+    /// printers created
 
     POS_Printer * pos_printer = POS_Printer::create_POS_Printer();
+    VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
 
 
     /// collections for storing data created
@@ -91,8 +92,19 @@ int main()
             pos_printer->print_elems_to_pos_file(elements, constants::POS_TETRA, nodez, "output/elements.pos");
     }
 
+    /// VTK elements
+    {
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+            vtk_printer->print_brick_elems_material_2_vtk_file(elements, nodez, "output/elements.vtk");
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+            vtk_printer->print_tetrahedron_elems_material_2_vtk_file(elements, nodez, "output/elements.vtk");
+    }
+
     /// POS pressure surface
     pos_printer->print_quads_from_quadrilateral_elements_as_lines_into_pos(false, input_faces_from_fal, nodez, "output/pressure_surface.pos");
+
+    /// VTK pressure surface
+    vtk_printer->print_quads_to_vtk_file(false, input_faces_from_fal, nodez, "output/pressure_surface.vtk");
 
     /// SLI file
     SLI_Printer * sli_printer = SLI_Printer::create_SLI_Printer();

@@ -37,17 +37,17 @@ int main()
     {
         case 1:
         {
-            dremesh4Tetgen_tetra(params->print_pos_nodes, params->print_pos_elements, params->material_ID);
+            dremesh4Tetgen_tetra(params->print_pos_nodes, params->print_pos_elements, params->print_vtk_elements, params->material_ID);
             break;
         }
         case 4:
         {
-            dremesh4Femap(params->inheritBoundary, params->print_pos_nodes, params->print_pos_elements, params->chekAllBrickElements, params->calculateVolumeOfTheModel, params->material_ID);
+            dremesh4Femap(params->inheritBoundary, params->print_pos_nodes, params->print_pos_elements, params->print_vtk_elements, params->chekAllBrickElements, params->calculateVolumeOfTheModel, params->material_ID);
             break;
         }
         default:
         {
-            dremesh4Tetgen(params->print_pos_nodes, params->print_pos_elements, params->chekAllBrickElements, params->calculateVolumeOfTheModel, params->material_ID);
+            dremesh4Tetgen(params->print_pos_nodes, params->print_pos_elements, params->print_vtk_elements, params->chekAllBrickElements, params->calculateVolumeOfTheModel, params->material_ID);
         }
     }
 

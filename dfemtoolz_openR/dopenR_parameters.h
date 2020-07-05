@@ -61,6 +61,12 @@ public:
     bool   print_pos_init_velocity;
     bool   print_pos_inlet_or_outlet;
     bool   print_pos_surface;
+
+    bool print_vtk_elements;
+    bool print_vtk_inlet_or_outlet;
+    bool print_vtk_surface;
+
+
     bool   plane_defined_with_nodes;
     UINT   plane_nodeA;
     UINT   plane_nodeB;

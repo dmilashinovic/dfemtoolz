@@ -33,6 +33,7 @@ dremesh_Parameters::dremesh_Parameters()
     inheritBoundary = 0;
     print_pos_nodes = 1;
     print_pos_elements = 0;
+    print_vtk_elements = 0;
 
     material_ID = 1;
 
@@ -84,6 +85,11 @@ bool dremesh_Parameters::read_file()
         return false;
     sscanf(line, "%*s%d", &tmp);
     print_pos_elements = (bool) tmp;
+
+    if(!reading::get_line_that_contains_this_string_and_close_the_file(line, "vtkElements", m_sPath_and_FileName))
+        return false;
+    sscanf(line, "%*s%d", &tmp);
+    print_vtk_elements = (bool) tmp;
 
     if(!reading::get_line_that_contains_this_string_and_close_the_file(line, "chekAllBrickElements", m_sPath_and_FileName))
         return false;

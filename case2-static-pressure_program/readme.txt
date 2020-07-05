@@ -24,11 +24,15 @@ for i=1 to to number of .fal files (1) that contains surfaces on which loads sho
 	(this was done, and .cfg files are configured in input/ directory) 
 
 	4
-	Call the dfemtoolz_openR module to prescribe the given BCs to the model.
+	Call the dfemtoolz_openR module to prescribe the given BCs to 
+	the model.
 
 5
 end for
 
 In output/ directory user can find the results. Output files can be different if user modify settings in .cfg files.
 
-Final results are in final-output.zip package as well.
+Final results are zipped in output/
+
+Thank you for your interest
+dmilashinovic ..::at::.. gmail.com

@@ -24,7 +24,7 @@
 
 #include "dremesh4Tetgen_tetra.h"
 
-int dremesh4Tetgen_tetra(bool print_pos_nodes, bool print_pos_elements, int material_ID)
+int dremesh4Tetgen_tetra(bool print_pos_nodes, bool print_pos_elements, bool print_vtk_elements, int material_ID)
 {
     Info * info = Info::createInfo();
 
@@ -67,6 +67,14 @@ int dremesh4Tetgen_tetra(bool print_pos_nodes, bool print_pos_elements, int mate
             pos_printer->set_elem_type(constants::TETRA);
             pos_printer->print_elems_to_pos_file(elements, constants::POS_TETRA, nodez, "output/elements.pos");
         }
+    }
+
+    if (print_vtk_elements)
+    {
+        VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
+
+        vtk_printer->print_tetrahedron_elems_material_2_vtk_file(
+        elements, nodez, "output/elements.vtk");
     }
 
     info->print_info_message("----");

@@ -59,7 +59,6 @@
 		<Unit filename="dMisc/dSTL_Triangle.h" />
 		<Unit filename="dMisc/dTimer.cxx" />
 		<Unit filename="dMisc/dTimer.h" />
-		<Unit filename="dfemtoolz_dMyLib.h" />
 		<Unit filename="dPost/dPost_Node.cxx" />
 		<Unit filename="dPost/dPost_Node.h" />
 		<Unit filename="dPrin/dInfo.cxx" />
@@ -70,6 +69,8 @@
 		<Unit filename="dPrin/dPrinting.h" />
 		<Unit filename="dPrin/dSLI_Printer.cxx" />
 		<Unit filename="dPrin/dSLI_Printer.h" />
+		<Unit filename="dPrin/dVTK_Printer.cxx" />
+		<Unit filename="dPrin/dVTK_Printer.h" />
 		<Unit filename="dPrin/dWRL_Printer.cxx" />
 		<Unit filename="dPrin/dWRL_Printer.h" />
 		<Unit filename="dRead/dFAL_Reader.cxx" />
@@ -86,6 +87,7 @@
 		<Unit filename="dRead/dTetgen_Reader.h" />
 		<Unit filename="dRead/dUNV_Reader.cxx" />
 		<Unit filename="dRead/dUNV_Reader.h" />
+		<Unit filename="dfemtoolz_dMyLib.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

@@ -2,74 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="..\dfemtoolz_dMyLib\dBase\dError.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1465" topLine="44" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterial.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6995" topLine="187" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_dMyLib\dPrin\dPOS_Printer.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="21035" topLine="569" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterial.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="60" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_dMyLib\dBase\dSuperCollection.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1865" topLine="65" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterialF.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1942" topLine="46" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_dMyLib\dGeom\dGeom_Element.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1732" topLine="60" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterialF.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2170" topLine="66" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_dMyLib\dPrin\dSLI_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4792" topLine="152" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterial_functions.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\dfemtoolz_dMyLib\dPrin\dSLI_Printer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11057" topLine="356" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterial_parameters.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1079" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="dmultimaterial_parameters.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1530" topLine="48" />
-		</Cursor>
-	</File>
 	<File name="..\dfemtoolz_dMyLib\dMesh\dMeshing.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="19266" topLine="394" />
+		</Cursor>
+	</File>
+	<File name="dmultimaterial.cxx" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11987" topLine="295" />
 		</Cursor>
 	</File>
 	<File name="..\dfemtoolz_dMyLib\dMesh\dTMeshing.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -77,14 +17,14 @@
 			<Cursor1 position="11935" topLine="354" />
 		</Cursor>
 	</File>
-	<File name="..\dfemtoolz_dMyLib\dMisc\dMisc_Functionz.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="dmultimaterialF.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1367" topLine="34" />
+			<Cursor1 position="820" topLine="19" />
 		</Cursor>
 	</File>
-	<File name="..\dfemtoolz_dMyLib\dMesh\dMesh_Boundary_and_Loads.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\dfemtoolz_dMyLib\dPrin\dSLI_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8004" topLine="168" />
+			<Cursor1 position="4792" topLine="152" />
 		</Cursor>
 	</File>
 	<File name="..\dfemtoolz_dMyLib\dRead\dTetgen_Reader.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -92,9 +32,103 @@
 			<Cursor1 position="2871" topLine="90" />
 		</Cursor>
 	</File>
+	<File name="dmultimaterial_functions.cxx" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="45986" topLine="1101" />
+		</Cursor>
+		<Folding>
+			<Collapse line="33" />
+		</Folding>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dPrin\dVTK_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8630" topLine="37" />
+		</Cursor>
+		<Folding>
+			<Collapse line="42" />
+			<Collapse line="103" />
+			<Collapse line="157" />
+			<Collapse line="210" />
+			<Collapse line="264" />
+			<Collapse line="326" />
+			<Collapse line="377" />
+			<Collapse line="425" />
+			<Collapse line="473" />
+		</Folding>
+	</File>
+	<File name="dmultimaterial_parameters.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1203" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dPrin\dPOS_Printer.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="21035" topLine="569" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dGeom\dGeom_Element.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1732" topLine="60" />
+		</Cursor>
+	</File>
+	<File name="dmultimaterial.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1833" topLine="46" />
+		</Cursor>
+	</File>
 	<File name="..\dfemtoolz_dMyLib\dPrin\dInfo.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="dmultimaterialF.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2761" topLine="79" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dPrin\dSLI_Printer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11057" topLine="356" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dMesh\dMesh_Boundary_and_Loads.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8004" topLine="168" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dBase\dError.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1465" topLine="44" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dMisc\dMisc_Functionz.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1367" topLine="34" />
+		</Cursor>
+	</File>
+	<File name="dmultimaterial_functions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3127" topLine="85" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dPrin\dVTK_Printer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2103" topLine="73" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dRead\dSLI_Reader.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10571" topLine="350" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_dMyLib\dBase\dSuperCollection.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1865" topLine="65" />
+		</Cursor>
+	</File>
+	<File name="dmultimaterial_parameters.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1530" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

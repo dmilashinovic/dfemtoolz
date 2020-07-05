@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dSLI_Reader.h"
@@ -338,9 +338,9 @@ void SLI_Reader::read_numstb_faces
 {
     char line[constants::no_of_line_characters];
 
-    UINT elemID, nodes[6];
+    UINT elemID, nodes[10], side, ID;
 
-    Geom_Element contact_face(5);
+    Geom_Element contact_face;
 
     for (;;)
     {
@@ -349,24 +349,24 @@ void SLI_Reader::read_numstb_faces
 
         if (node_per_elem == 8)
         {
-            sscanf(line, "%d %d %d %d %d %d",
-            &elemID, &nodes[1], &nodes[2], &nodes[3], &nodes[4], &nodes[5]);
+            sscanf(line, "%d %d %d %d %d %d %d %d %d %d",
+            &ID, &elemID, &nodes[1], &nodes[2], &nodes[3], &nodes[4], &nodes[5], &nodes[6], &nodes[7], &side);
 
-            for (int j = 1; j <= 5; j++)
+            for (int j = 1; j <= 7; j++)
                 contact_face.set_node(nodes[j], j);
         }
 
         if (node_per_elem == 4)
         {
-            sscanf(line, "%d %d %d %d %d",
-            &elemID, &nodes[1], &nodes[2], &nodes[3], &nodes[4]);
+            sscanf(line, "%d %d %d %d %d %d %d %d",
+            &elemID, &nodes[1], &nodes[2], &nodes[3], &nodes[4], &nodes[5], &nodes[6], &side);
 
-            for (int j = 1; j <= 5; j++)
+            for (int j = 1; j <= 6; j++)
                 contact_face.set_node(nodes[j], j);
         }
 
         contact_face.set_ID(elemID);
-
+        contact_face.set_boundary((bool)side);
         contact_face_col.insert(contact_face);
     }
 }

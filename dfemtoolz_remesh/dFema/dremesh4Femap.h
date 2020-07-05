@@ -53,6 +53,7 @@
 
 #include "../../dfemtoolz_dMyLib/dPrin/dPrinting.h"
 #include "../../dfemtoolz_dMyLib/dPrin/dPOS_Printer.h"
+#include "../../dfemtoolz_dMyLib/dPrin/dVTK_Printer.h"
 #include "../../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h"
 #include "../../dfemtoolz_dMyLib/dPrin/dInfo.h"
 
@@ -60,7 +61,7 @@
 
 #include "dremesh4FemapF.h"
 
-int dremesh4Femap(bool inherit_boundary_and_loads, bool print_pos_nodes, bool print_pos_elements, bool check_bricks, bool print_volume_of_the_model, int material_ID);
+int dremesh4Femap(bool inherit_boundary_and_loads, bool print_pos_nodes, bool print_pos_elements, bool print_vtk_elements, bool check_bricks, bool print_volume_of_the_model, int material_ID);
 
 #endif	/* _DREMESH4FEMAP_H */
 

@@ -84,12 +84,13 @@ private:
     void print_vector_into_pos(Geom_Node & node, Geom_Node & value, ofstream & pos_file);
     void print_line_into_pos(Geom_Node & node1, Geom_Node & node2, double value1, double value2, ofstream & pos_file);
     void print_triangle_into_pos(Geom_Node & node1, Geom_Node & node2, Geom_Node & node3, ofstream & pos_file);
-    void print_quad_into_pos(Geom_Node & node1, Geom_Node & node2, Geom_Node & node3, Geom_Node & node4, ofstream & pos_file);
 
 protected:
     POS_Printer();
 
 public:
+
+    void print_quad_into_pos(Geom_Node & node1, Geom_Node & node2, Geom_Node & node3, Geom_Node & node4, ofstream & pos_file);
 
     void set_how_many_nodes_2_print(UINT no_of_nodes2print);
     void set_elem_type(int elem_type);
@@ -625,7 +626,7 @@ void POS_Printer::print_surface_quads_from_brick_elements_as_lines_into_pos
 
     ofstream output_file;
     output_file.open(path_and_fileName.c_str());
-    output_file << "View \"surface_quads\" {" << endl;
+    output_file << "View \"surface_faces\" {" << endl;
 
     for (UINT i = 1; i <= bric_col.get_size(); i++)
     {
@@ -715,7 +716,7 @@ void POS_Printer::print_triangles_from_triangle_elements_as_lines_into_pos
 
     ofstream output_file;
     output_file.open(path_and_fileName.c_str());
-    output_file << "View \"quads\" {" << endl;
+    output_file << "View \"triangles\" {" << endl;
 
     if (!only_triangles_with_flag)
     for (UINT i = 1; i <= face_col.get_size(); i++)
@@ -748,7 +749,7 @@ bool only_triangles_with_flag, Collection <Geom_Element> & face_col, Collection 
 
     ofstream output_file;
     output_file.open(path_and_fileName.c_str());
-    output_file << "View \"quads\" {" << endl;
+    output_file << "View \"triangles\" {" << endl;
 
     if (!only_triangles_with_flag)
     for (UINT i = startID; i <= endID; i++)

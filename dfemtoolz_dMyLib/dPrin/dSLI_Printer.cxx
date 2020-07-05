@@ -1,25 +1,25 @@
 /*
     This file is part of dfemtoolz software package.
 *
-    dfemtoolz software package is free software: 
-*   you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
+    dfemtoolz software package is free software:
+*   you can redistribute it and/or modify it under the terms of the
+    GNU General Public License as published by the Free Software Foundation,
 *   either version 3 of the License, or (at your option) any later version.
 
-*   dfemtoolz software package is distributed in the hope that 
-    it will be useful, but WITHOUT ANY WARRANTY; without even the 
-*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+*   dfemtoolz software package is distributed in the hope that
+    it will be useful, but WITHOUT ANY WARRANTY; without even the
+*   implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     See the GNU General Public License for more details.
 *
     You should have received a copy of the GNU General Public License
-*   along with dfemtoolz software package.  
+*   along with dfemtoolz software package.
     If not, see <http://www.gnu.org/licenses/>.
 *
     For any additional info contact author of this software:
-*   
+*
     Danko Milasinovic
 *   dmilashinovic@gmail.com
-    dmilashinovic@kg.ac.rs    
+    dmilashinovic@kg.ac.rs
 */
 
 #include "dSLI_Printer.h"
@@ -125,7 +125,7 @@ void SLI_Printer::third_block_part1(fstream & sli_file)
 void SLI_Printer::third_block_part1c(fstream & sli_file)
 {
     sli_file <<
-    "C NUMSTB elementID nodesID.. contact_surfaceID" << endl;
+    "C NUMSTB ID elementID nodesID.. contact_surfaceID material1_ID material2_ID contact_side(0_or_1) " << endl;
 }
 
 void SLI_Printer::third_block_end(fstream & sli_file)
@@ -230,21 +230,27 @@ Collection <Geom_Element> & face_col)
         for (UINT i = 1; i <= contact_face_col.get_size(); i++)
         {
             if (face_type == constants::TRIANGLE)
-                sprintf(buffR, "%10d%10d%10d%10d%10d",
-                contact_face_col[i].get_ID(),
-                contact_face_col[i].get_node(1),
-                contact_face_col[i].get_node(2),
-                contact_face_col[i].get_node(3),
-                contact_face_col[i].get_node(4));
-
-            if (face_type == constants::QUAD)
-                sprintf(buffR, "%10d%10d%10d%10d%10d%5d",
+                sprintf(buffR, "%10d%10d%10d%10d%10d%5d%5d%5d",
                 contact_face_col[i].get_ID(),
                 contact_face_col[i].get_node(1),
                 contact_face_col[i].get_node(2),
                 contact_face_col[i].get_node(3),
                 contact_face_col[i].get_node(4),
-                contact_face_col[i].get_node(5));
+                contact_face_col[i].get_node(5),
+                contact_face_col[i].get_node(6),
+                (int) contact_face_col[i].get_boundary());
+
+            if (face_type == constants::QUAD)
+                sprintf(buffR, "%10d%10d%10d%10d%10d%5d%5d%5d%5d",
+                contact_face_col[i].get_ID(),
+                contact_face_col[i].get_node(1),
+                contact_face_col[i].get_node(2),
+                contact_face_col[i].get_node(3),
+                contact_face_col[i].get_node(4),
+                contact_face_col[i].get_node(5),
+                contact_face_col[i].get_node(6),
+                contact_face_col[i].get_node(7),
+                (int) contact_face_col[i].get_boundary());
 
             file << buffR << endl;
         }
@@ -302,21 +308,29 @@ Collection <Geom_Element> & contact_face_col)
         for (UINT i = 1; i <= contact_face_col.get_size(); i++)
         {
             if (face_type == constants::TRIANGLE)
-                sprintf(buffR, "%10d%10d%10d%10d%10d",
-                contact_face_col[i].get_ID(),
-                contact_face_col[i].get_node(1),
-                contact_face_col[i].get_node(2),
-                contact_face_col[i].get_node(3),
-                contact_face_col[i].get_node(4));
-
-            if (face_type == constants::QUAD)
-                sprintf(buffR, "%10d%10d%10d%10d%10d%5d",
+                sprintf(buffR, "%10d%10d%10d%10d%10d%10d%5d%5d%5d",
+                i,
                 contact_face_col[i].get_ID(),
                 contact_face_col[i].get_node(1),
                 contact_face_col[i].get_node(2),
                 contact_face_col[i].get_node(3),
                 contact_face_col[i].get_node(4),
-                contact_face_col[i].get_node(5));
+                contact_face_col[i].get_node(5),
+                contact_face_col[i].get_node(6),
+                (int) contact_face_col[i].get_boundary());
+
+            if (face_type == constants::QUAD)
+                sprintf(buffR, "%10d%10d%10d%10d%10d%10d%5d%5d%5d%5d",
+                i,
+                contact_face_col[i].get_ID(),
+                contact_face_col[i].get_node(1),
+                contact_face_col[i].get_node(2),
+                contact_face_col[i].get_node(3),
+                contact_face_col[i].get_node(4),
+                contact_face_col[i].get_node(5),
+                contact_face_col[i].get_node(6),
+                contact_face_col[i].get_node(7),
+                (int) contact_face_col[i].get_boundary());
 
             file << buffR << endl;
         }

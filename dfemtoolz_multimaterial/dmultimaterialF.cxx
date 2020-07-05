@@ -24,7 +24,6 @@
 
 #include "dmultimaterialF.h"
 
-
 int dmultimaterialF(
 Collection <Mesh_Node> & modelAnodes,
 Collection <Mesh_Node> & modelBnodes,
@@ -243,4 +242,502 @@ string parameters_path_and_filename)
 
     return no_of_contact_surfaces;
 }
+
+int dmultimaterialF(
+Collection <Mesh_Node> & modelAnodes,
+Collection <Mesh_Node> & modelBnodes,
+Collection <Geom_Element> & modelAelements,
+Collection <Geom_Element> & modelBelements,
+Collection <Geom_Element> & init_faces,
+Collection <Geom_Element> & contact_faces_side0,
+Collection <Geom_Element> & contact_faces_side1,
+UINT & current_no_of_contacts)
+{
+    Info * info = Info::createInfo();
+
+    info->print_software_header("multimaterial", 2017, 180313);
+    info->print_info_message("");
+
+    Timer * timer = Timer::createTimer();
+    timer->set_start_time();
+
+    SuperCollection <Mesh_Node> nodez;
+    SuperCollection <Geom_Element> elems;
+
+    SuperCollection <UINT> references_to_contact_surfaces;
+
+    nodez.insert(modelAnodes);
+    nodez.insert(modelBnodes);
+    elems.insert(modelAelements);
+    elems.insert(modelBelements);
+
+    UINT no_of_contact_surfaces = 0;
+
+    info->print_info_message("merging materials... ");
+
+    int multimaterial_IDs_from_first_input = 1;
+
+    for (UINT i = 1; i <= elems[1].get_size(); i++)
+    if (elems[1][i].get_material_ID() > multimaterial_IDs_from_first_input)
+        multimaterial_IDs_from_first_input = elems[1][i].get_material_ID();
+
+    /// common surface node merging
+    if (nodez.get_size() > 1)
+    for (UINT i = 2; i <= nodez.get_size(); i++) /// for more than 2 materials at once i-max > 2
+    for (UINT j = 1; j <= nodez[i].get_size(); j++)
+    if (nodez[i][j].is_velocity_boundary())
+    for (UINT k = 1; k <= nodez[i-1].get_size(); k++) /// this is the case where only i-1 materials have connection for general purpose must have yet another loop
+    if (nodez[i-1][k].is_velocity_boundary())
+    if (these_nodes_are_the_same(nodez[i][j], nodez[i-1][k], constants::same_node_tol))
+    {
+        nodez[i][j].set_ID(k);
+        nodez[i-1][k].set_flag(true);
+    }
+    /// with id and flag are contact nodes - same nodes
+
+    /// nodes supercollection to collection no 1
+    for (UINT i = 2; i <= nodez.get_size(); i++)
+    for (UINT j = 1; j <= nodez[i].get_size(); j++)
+    if (nodez[i][j].get_ID() == 0)
+    {
+        nodez[1].insert(nodez[i][j]);
+        UINT mid = nodez[1].get_size();
+        nodez[i][j].set_ID(mid);
+    }
+
+    /// elems[2] renumbering
+    if (elems.get_size() > 1)
+    {
+        for (UINT i = 2; i <= elems.get_size(); i++)
+        for (UINT j = 1; j <= elems[i].get_size(); j++)
+        {
+            elems[i][j].set_material_ID(multimaterial_IDs_from_first_input + i - 1);
+
+            for (int k = 1; k <= elems[i][j].how_many_nodes_per_element(); k++)
+            if (nodez[i][elems[i][j].get_node(k)].get_ID() != 0)
+            {
+                UINT mid = elems[i][j].get_node(k);
+                elems[i][j].set_node(nodez[i][mid].get_ID(), k);
+            }
+        }
+    }
+
+    /// finding contact
+    {
+        UINT mat_from_el_col_02 = elems[2][1].get_material_ID();
+
+        for (UINT z = 1; z <= 2; z++)
+        {
+            for (UINT j = 1; j <= elems[z].get_size(); j++)
+            {
+                if (z == 1)
+                    put_contact_edges_first(j, nodez[1], elems[z][j], contact_faces_side0, mat_from_el_col_02, current_no_of_contacts);
+
+                if (z > 1)
+                    put_contact_edges_second(j + elems[1].get_size(), nodez[1], elems[z][j], contact_faces_side1, elems[1], current_no_of_contacts);
+            }
+        }
+
+        if (contact_faces_side0.get_size() > 0)
+            current_no_of_contacts++;
+    }
+
+    /// elems supercollection to collection
+    for (UINT i = 2; i <= elems.get_size(); i++)
+    for (UINT j = 1; j <= elems[i].get_size(); j++)
+        elems[1].insert(elems[i][j]);
+
+//    if (params->chekAllBrickElements)
+/*
+    if (elems[1][1].how_many_nodes_per_element() == constants::BRICK)
+    {
+        bool all_elements_are_ok = true;
+
+            for (UINT j = 1; j <= 1; j++)
+            for (UINT i = 1; i <= elems[j].get_size(); i++)
+            if (!this_brick_is_fine(elems[j][i], nodez[1]))
+            {
+                info->print_info_message("\n element number " + utos(i) + " has det less than zero");
+                all_elements_are_ok = false;
+            }
+
+            if (all_elements_are_ok)
+                info->print_info_message("\n all elems are fine \n ");
+    }
+*/
+
+    modelAnodes.clear_collection();
+    modelAelements.clear_collection();
+    modelAnodes.make_duplicate_from(nodez[1]);
+    modelAelements.make_duplicate_from(elems[1]);
+
+    return no_of_contact_surfaces;
+}
+
+int dmultimaterialF(
+Collection <Mesh_Node> & modelAnodes,
+Collection <Mesh_Node> & modelBnodes,
+Collection <Geom_Element> & modelAelements,
+Collection <Geom_Element> & modelBelements,
+Collection <Geom_Element> & init_faces,
+Collection <Geom_Element> & contact_faces)
+{
+    Info * info = Info::createInfo();
+
+    Timer * timer = Timer::createTimer();
+    timer->set_start_time();
+
+    SuperCollection <Mesh_Node> nodez;
+    SuperCollection <Geom_Element> elems;
+
+    SuperCollection <UINT> references_to_contact_surfaces;
+
+    nodez.insert(modelAnodes);
+    nodez.insert(modelBnodes);
+    elems.insert(modelAelements);
+    elems.insert(modelBelements);
+
+    UINT no_of_contact_surfaces = 0;
+
+    info->print_info_message("merging materials... ");
+
+    if (contact_faces.get_size() > 0)
+    for (UINT x = 1; x <= contact_faces.get_size(); x++)
+    {
+        if (modelAelements[1].how_many_nodes_per_element() == constants::BRICK)
+        if (no_of_contact_surfaces < contact_faces[x].get_node(5))
+            no_of_contact_surfaces = contact_faces[x].get_node(5);
+
+        if (modelAelements[1].how_many_nodes_per_element() == constants::TETRA)
+        if (no_of_contact_surfaces < contact_faces[x].get_node(4))
+            no_of_contact_surfaces = contact_faces[x].get_node(4);
+    }
+
+    int multimaterial_IDs_from_first_input = 1;
+
+    for (UINT i = 1; i <= elems[1].get_size(); i++)
+    if (elems[1][i].get_material_ID() > multimaterial_IDs_from_first_input)
+        multimaterial_IDs_from_first_input = elems[1][i].get_material_ID();
+
+    /// common surface node merging
+    if (nodez.get_size() > 1)
+    for (UINT i = 2; i <= nodez.get_size(); i++) /// for more than 2 materials at once i-max > 2
+    for (UINT j = 1; j <= nodez[i].get_size(); j++)
+    if (nodez[i][j].is_velocity_boundary())
+    for (UINT k = 1; k <= nodez[i-1].get_size(); k++) /// this is the case where only i-1 materials have connection for general purpose must have yet another loop
+    if (nodez[i-1][k].is_velocity_boundary())
+    if (these_nodes_are_the_same(nodez[i][j], nodez[i-1][k], constants::same_node_tol))
+    {
+        nodez[i][j].set_ID(k);
+        nodez[i-1][k].set_flag(true);
+    }
+    /// with id and flag are contact nodes - same nodes
+
+    /// nodes supercollection to collection no 1
+    for (UINT i = 2; i <= nodez.get_size(); i++)
+    for (UINT j = 1; j <= nodez[i].get_size(); j++)
+    if (nodez[i][j].get_ID() == 0)
+    {
+        nodez[1].insert(nodez[i][j]);
+        UINT mid = nodez[1].get_size();
+        nodez[i][j].set_ID(mid);
+    }
+
+    /// elems[2] renumbering
+    if (elems.get_size() > 1)
+    {
+        for (UINT i = 2; i <= elems.get_size(); i++)
+        for (UINT j = 1; j <= elems[i].get_size(); j++)
+        {
+            elems[i][j].set_material_ID(multimaterial_IDs_from_first_input + i - 1);
+
+            for (int k = 1; k <= elems[i][j].how_many_nodes_per_element(); k++)
+            if (nodez[i][elems[i][j].get_node(k)].get_ID() != 0)
+            {
+                UINT mid = elems[i][j].get_node(k);
+                elems[i][j].set_node(nodez[i][mid].get_ID(), k);
+            }
+        }
+    }
+
+    {
+        Collection <UINT> ref_2_contact_surface;
+
+        ref_2_contact_surface.insert(0);
+        ref_2_contact_surface.insert(0);
+        ref_2_contact_surface.insert(no_of_contact_surfaces);
+
+        references_to_contact_surfaces.insert(ref_2_contact_surface);
+    }
+
+    /// finding contact
+    {
+        UINT mat_from_el_col_02 = elems[2][1].get_material_ID();
+
+        for (UINT z = 1; z <= 2; z++)
+        {
+            for (UINT j = 1; j <= elems[z].get_size(); j++)
+            {
+                if (z == 1)
+                    put_contact_edges_first(j, nodez[1], elems[z][j], contact_faces, mat_from_el_col_02, references_to_contact_surfaces);
+
+                if (z > 1)
+                    put_contact_edges_second(j + elems[1].get_size(), nodez[1], elems[z][j], contact_faces, elems[1], references_to_contact_surfaces);
+            }
+        }
+    }
+
+    /// elems supercollection to collection
+    for (UINT i = 2; i <= elems.get_size(); i++)
+    for (UINT j = 1; j <= elems[i].get_size(); j++)
+        elems[1].insert(elems[i][j]);
+
+//    if (params->chekAllBrickElements)
+/*
+    if (elems[1][1].how_many_nodes_per_element() == constants::BRICK)
+    {
+        bool all_elements_are_ok = true;
+
+            for (UINT j = 1; j <= 1; j++)
+            for (UINT i = 1; i <= elems[j].get_size(); i++)
+            if (!this_brick_is_fine(elems[j][i], nodez[1]))
+            {
+                info->print_info_message("\n element number " + utos(i) + " has det less than zero");
+                all_elements_are_ok = false;
+            }
+
+            if (all_elements_are_ok)
+                info->print_info_message("\n all elems are fine \n ");
+    }
+*/
+
+    modelAnodes.clear_collection();
+    modelAelements.clear_collection();
+    modelAnodes.make_duplicate_from(nodez[1]);
+    modelAelements.make_duplicate_from(elems[1]);
+
+    return no_of_contact_surfaces;
+}
+
+
+int dmultimaterialF(
+Collection <Mesh_Node> & modelAnodes,
+Collection <Mesh_Node> & modelBnodes,
+Collection <Geom_Element> & modelAelements,
+Collection <Geom_Element> & modelBelements,
+Collection <Geom_Element> & init_faces,
+SuperCollection <Geom_Element> & contact_faces_supercol,
+Collection <UINT> & contact_faces_supercol_checksums)
+{
+    Info * info = Info::createInfo();
+
+    info->print_software_header("multimaterial", 2017, 180313);
+    info->print_info_message("");
+
+    Collection <Geom_Element> contact_faces_side0;
+    Collection <Geom_Element> contact_faces_side1;
+
+
+    Timer * timer = Timer::createTimer();
+    timer->set_start_time();
+
+    SuperCollection <Mesh_Node> nodez;
+    SuperCollection <Geom_Element> elems;
+
+    SuperCollection <UINT> references_to_contact_surfaces;
+
+    nodez.insert(modelAnodes);
+    nodez.insert(modelBnodes);
+    elems.insert(modelAelements);
+    elems.insert(modelBelements);
+
+    UINT no_of_contact_surfaces = 0;
+
+    info->print_info_message("merging materials... ");
+
+    int multimaterial_IDs_from_first_input = 1;
+
+    for (UINT i = 1; i <= elems[1].get_size(); i++)
+    if (elems[1][i].get_material_ID() > multimaterial_IDs_from_first_input)
+        multimaterial_IDs_from_first_input = elems[1][i].get_material_ID();
+
+    /// common surface node merging
+    if (nodez.get_size() > 1)
+    for (UINT i = 2; i <= nodez.get_size(); i++) /// for more than 2 materials at once i-max > 2
+    for (UINT j = 1; j <= nodez[i].get_size(); j++)
+    if (nodez[i][j].is_velocity_boundary())
+    for (UINT k = 1; k <= nodez[i-1].get_size(); k++) /// this is the case where only i-1 materials have connection for general purpose must have yet another loop
+    if (nodez[i-1][k].is_velocity_boundary())
+    if (these_nodes_are_the_same(nodez[i][j], nodez[i-1][k], constants::same_node_tol))
+    {
+        nodez[i][j].set_ID(k);
+        nodez[i-1][k].set_flag(true);
+    }
+    /// with id and flag are contact nodes - same nodes
+
+    /// nodes supercollection to collection no 1
+    for (UINT i = 2; i <= nodez.get_size(); i++)
+    for (UINT j = 1; j <= nodez[i].get_size(); j++)
+    if (nodez[i][j].get_ID() == 0)
+    {
+        nodez[1].insert(nodez[i][j]);
+        UINT mid = nodez[1].get_size();
+        nodez[i][j].set_ID(mid);
+    }
+
+    /// elems[2] renumbering
+    if (elems.get_size() > 1)
+    {
+        for (UINT i = 2; i <= elems.get_size(); i++)
+        for (UINT j = 1; j <= elems[i].get_size(); j++)
+        {
+            elems[i][j].set_material_ID(multimaterial_IDs_from_first_input + i - 1);
+
+            for (int k = 1; k <= elems[i][j].how_many_nodes_per_element(); k++)
+            if (nodez[i][elems[i][j].get_node(k)].get_ID() != 0)
+            {
+                UINT mid = elems[i][j].get_node(k);
+                elems[i][j].set_node(nodez[i][mid].get_ID(), k);
+            }
+        }
+    }
+
+    /// finding contact
+    {
+        UINT mat_from_el_col_02 = elems[2][1].get_material_ID();
+
+        for (UINT z = 1; z <= 2; z++)
+        {
+            for (UINT j = 1; j <= elems[z].get_size(); j++)
+            {
+                if (z == 1)
+                    put_contact_edges_first(j, nodez[1], elems[z][j], contact_faces_side0, mat_from_el_col_02);
+
+                if (z > 1)
+                    put_contact_edges_second(j + elems[1].get_size(), nodez[1], elems[z][j], contact_faces_side1, elems[1]);
+            }
+        }
+
+        if (contact_faces_side0.get_size() > 0)
+        if (contact_faces_side1.get_size() > 0)
+        {
+//            SuperCollection <Geom_Element> con_fcs0, con_fcs1;
+            Collection <Geom_Element> con_fcz; /// empty array
+
+//            Collection <UINT> checksum0, checksum1;
+            UINT checksum, arrayID = 0;
+
+
+            {
+//                checksum = contact_faces_side0[1].get_node(6) + contact_faces_side0[1].get_node(5);
+//                contact_faces_supercol.insert(con_fcz);
+//                contact_faces_supercol_checksums.insert(checksum);
+
+                for (UINT chksb = 1; chksb <= contact_faces_side0.get_size(); chksb++)
+                {
+                    arrayID = 0;
+
+                    if (elems[1][1].how_many_nodes_per_element() == 4)
+                        checksum = contact_faces_side0[chksb].get_node(6) + contact_faces_side0[chksb].get_node(5);
+
+                    if (elems[1][1].how_many_nodes_per_element() == 8)
+                        checksum = contact_faces_side0[chksb].get_node(6) + contact_faces_side0[chksb].get_node(7);
+
+                    for (UINT arrswitch = 1; arrswitch <= contact_faces_supercol.get_size(); arrswitch++)
+                    if (checksum == contact_faces_supercol_checksums[arrswitch])
+                    {
+                        if (contact_faces_side0[chksb].get_node(6) !=
+                        contact_faces_supercol[arrswitch][1].get_node(6))
+                            continue;
+
+                        arrayID = arrswitch;
+                    }
+
+                    if (arrayID == 0)
+                    {
+                        contact_faces_supercol.insert(con_fcz);
+                        contact_faces_supercol_checksums.insert(checksum);
+
+                        contact_faces_supercol[contact_faces_supercol_checksums.get_size()].
+                        insert(contact_faces_side0[chksb]);
+                    }
+
+                    if (arrayID != 0)
+                        contact_faces_supercol[arrayID].insert(contact_faces_side0[chksb]);
+
+                }
+
+
+                for (UINT chksb = 1; chksb <= contact_faces_side1.get_size(); chksb++)
+                {
+                    arrayID = 0;
+
+                    if (elems[1][1].how_many_nodes_per_element() == 4)
+                        checksum = contact_faces_side1[chksb].get_node(6) + contact_faces_side1[chksb].get_node(5);
+
+                    if (elems[1][1].how_many_nodes_per_element() == 8)
+                        checksum = contact_faces_side1[chksb].get_node(6) + contact_faces_side1[chksb].get_node(7);
+
+                    for (UINT arrswitch = 1; arrswitch <= contact_faces_supercol.get_size(); arrswitch++)
+                    if (checksum == contact_faces_supercol_checksums[arrswitch])
+                    {
+                        if (contact_faces_side1[chksb].get_node(6) !=
+                        contact_faces_supercol[arrswitch][1].get_node(6))
+                            continue;
+
+                        arrayID = arrswitch;
+                    }
+
+                    if (arrayID == 0)
+                    {
+                        contact_faces_supercol.insert(con_fcz);
+                        contact_faces_supercol_checksums.insert(checksum);
+
+                        contact_faces_supercol[contact_faces_supercol_checksums.get_size()].
+                        insert(contact_faces_side1[chksb]);
+                    }
+
+                    if (arrayID != 0)
+                        contact_faces_supercol[arrayID].insert(contact_faces_side1[chksb]);
+
+                }
+
+            }
+
+
+        }
+    }
+
+    /// elems supercollection to collection
+    for (UINT i = 2; i <= elems.get_size(); i++)
+    for (UINT j = 1; j <= elems[i].get_size(); j++)
+        elems[1].insert(elems[i][j]);
+
+//    if (params->chekAllBrickElements)
+/*
+    if (elems[1][1].how_many_nodes_per_element() == constants::BRICK)
+    {
+        bool all_elements_are_ok = true;
+
+            for (UINT j = 1; j <= 1; j++)
+            for (UINT i = 1; i <= elems[j].get_size(); i++)
+            if (!this_brick_is_fine(elems[j][i], nodez[1]))
+            {
+                info->print_info_message("\n element number " + utos(i) + " has det less than zero");
+                all_elements_are_ok = false;
+            }
+
+            if (all_elements_are_ok)
+                info->print_info_message("\n all elems are fine \n ");
+    }
+*/
+
+    modelAnodes.clear_collection();
+    modelAelements.clear_collection();
+    modelAnodes.make_duplicate_from(nodez[1]);
+    modelAelements.make_duplicate_from(elems[1]);
+
+    return no_of_contact_surfaces;
+}
+
 

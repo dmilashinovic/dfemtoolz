@@ -71,6 +71,17 @@ int main ()
             pos_printer->print_elems_to_pos_file(elements, constants::POS_BRICK, nodez, "output/elements.pos");
     }
 
+
+    if (params->print_vtk_elements)
+    {
+        VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
+
+        vtk_printer->print_brick_elems_material_2_vtk_file(
+        elements, nodez, "output/elements.vtk");
+    }
+
+
+
     SLI_Printer * sli_printer = SLI_Printer::create_SLI_Printer();
     sli_printer->set_how_many_nodes_2_print(no_of_nodes);
     sli_printer->create_sli_file("output/simple_list.sli");

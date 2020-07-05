@@ -52,6 +52,7 @@
 
 #include "../../dfemtoolz_dMyLib/dPrin/dPrinting.h"
 #include "../../dfemtoolz_dMyLib/dPrin/dPOS_Printer.h"
+#include "../../dfemtoolz_dMyLib/dPrin/dVTK_Printer.h"
 #include "../../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h"
 #include "../../dfemtoolz_dMyLib/dPrin/dInfo.h"
 
@@ -59,7 +60,7 @@
 
 #include "dremesh4TetgenF.h"
 
-int dremesh4Tetgen(bool print_pos_nodes, bool print_pos_elements, bool check_bricks, bool print_volume_of_the_model, int material_ID);
+int dremesh4Tetgen(bool print_pos_nodes, bool print_pos_elements, bool print_vtk_elements, bool check_bricks, bool print_volume_of_the_model, int material_ID);
 
 #endif	/* _D4TETGEN_H */
 

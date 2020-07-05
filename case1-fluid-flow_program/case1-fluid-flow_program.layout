@@ -2,19 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="..\dfemtoolz_remesh\dremeshF.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\dfemtoolz_remesh\dTetg_tetra\dremesh4Tetgen_tetra.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1873" topLine="45" />
-		</Cursor>
-	</File>
-	<File name="case1-fluid-flow_program.cxx" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1944" topLine="56" />
+			<Cursor1 position="2484" topLine="59" />
 		</Cursor>
 	</File>
 	<File name="case1-fluid-flow_program.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2286" topLine="67" />
+			<Cursor1 position="1863" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="..\dfemtoolz_remesh\dremeshF.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1873" topLine="45" />
 		</Cursor>
 	</File>
 	<File name="..\dfemtoolz_remesh\dTetg\dremesh4Tetgen.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,14 +27,14 @@
 			<Cursor1 position="7100" topLine="215" />
 		</Cursor>
 	</File>
-	<File name="..\dfemtoolz_remesh\dTetg_tetra\dremesh4Tetgen_tetra.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2484" topLine="59" />
-		</Cursor>
-	</File>
 	<File name="..\dfemtoolz_dMyLib\dMesh\dTMeshing.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="11933" topLine="355" />
+		</Cursor>
+	</File>
+	<File name="case1-fluid-flow_program.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="940" topLine="26" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

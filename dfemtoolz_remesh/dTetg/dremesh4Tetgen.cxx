@@ -24,7 +24,7 @@
 
 #include "dremesh4Tetgen.h"
 
-int dremesh4Tetgen(bool print_pos_nodes, bool print_pos_elements, bool check_bricks, bool print_volume_of_the_model, int material_ID)
+int dremesh4Tetgen(bool print_pos_nodes, bool print_pos_elements, bool print_vtk_elements, bool check_bricks, bool print_volume_of_the_model, int material_ID)
 {
     Info * info = Info::createInfo();
 
@@ -60,6 +60,16 @@ int dremesh4Tetgen(bool print_pos_nodes, bool print_pos_elements, bool check_bri
             pos_printer->print_bricks_from_15node_tetrahedrons_and_14node_prisms_to_pos_file
             (elements, nodez, "output/elements.pos");
     }
+
+
+    if (print_vtk_elements)
+    {
+        VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
+
+        vtk_printer->print_bricks_from_15node_tetrahedrons_and_14node_prisms_to_vtk_file(
+        elements, nodez, "output/elements.vtk");
+    }
+
 
     info->print_info_message("----");
     info->print_info_message("Number of nodez in final mesh:       " +
