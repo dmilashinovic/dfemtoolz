@@ -34,5 +34,5 @@ In output/ directory user can find the results. Output files can be different if
 
 Final results are zipped in output/
 
-Thank you for your interest
+Thank you for your interest 
 dmilashinovic ..::at::.. gmail.com

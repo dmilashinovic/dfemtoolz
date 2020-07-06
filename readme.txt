@@ -28,5 +28,5 @@ There are modules of dfemtoolz that are excluded from this [public] package (add
 
 This software is available for public under GNU GPLv3 license.
 
-Thank you for your interest
+Thank you for your interest 
 dmilashinovic ..::at::.. gmail.com
