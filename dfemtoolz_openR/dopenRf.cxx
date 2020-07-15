@@ -140,7 +140,7 @@ Collection <Geom_Element> & elements, Collection <Geom_Element> & initial_faces,
 
     if (params->stl_or_fal_input == constants::stl)
     {
-        Geom_Element edge[4](2);
+        Geom_Element edge[4];
 
         for (UINT i = 1; i <= surface_facets.get_size(); i++)
         {
@@ -221,7 +221,7 @@ Collection <Geom_Element> & elements, Collection <Geom_Element> & initial_faces,
     if (params->stl_or_fal_input == constants::stl)
     {
         int no_of_inlet_or_outlet_edges_on_a_face_should_be_twice_no_of_faces = 0;
-        Geom_Element edge[4](3);
+        Geom_Element edge[4];
 
         for (UINT i = 1; i <= surface_facets.get_size(); i++)
         if (surface_facets[i].get_flag())
@@ -535,7 +535,7 @@ UINT material_ID)
 
     /// stl edge procedure 1
     {
-        Geom_Element edge[4](2);
+        Geom_Element edge[4];
 
         for (UINT i = 1; i <= surface_facets.get_size(); i++)
         {
@@ -616,7 +616,7 @@ UINT material_ID)
     /// stl edge procedure 2
     {
         int no_of_inlet_or_outlet_edges_on_a_face_should_be_twice_no_of_faces = 0;
-        Geom_Element edge[4](3);
+        Geom_Element edge[4];
 
         for (UINT i = 1; i <= surface_facets.get_size(); i++)
         if (surface_facets[i].get_flag())
