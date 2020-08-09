@@ -28,5 +28,20 @@ There are modules of dfemtoolz that are excluded from this [public] package (add
 
 This software is available for public under GNU GPLv3 license.
 
+
 Thank you for your interest 
 dmilashinovic ..::at::.. gmail.com
+
+
+Scientific citation:
+
+Danko Z. Milasinovic, Arso M. Vukicevic, Nenad D. Filipovic,
+dfemtoolz: An open-source C++ framework for efficient imposition of material and boundary conditions in finite element biomedical simulations,
+Computer Physics Communications,
+Volume 249,
+2020,
+106996,
+ISSN 0010-4655,
+https://doi.org/10.1016/j.cpc.2019.106996.
+(http://www.sciencedirect.com/science/article/pii/S0010465519303376)
+
