@@ -47,4 +47,3 @@ Volume 249,
 ISSN 0010-4655,
 https://doi.org/10.1016/j.cpc.2019.106996.
 (http://www.sciencedirect.com/science/article/pii/S0010465519303376)
-
