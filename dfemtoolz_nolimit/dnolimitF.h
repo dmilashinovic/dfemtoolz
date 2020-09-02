@@ -64,6 +64,8 @@
 
 
 UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elements);
+UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elements, Collection <Geom_Element> & surface_faces);
+
 
 #endif	/* _NOLIMITF_H */
 

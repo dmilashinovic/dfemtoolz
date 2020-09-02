@@ -29,13 +29,9 @@
 UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elements)
 {
     Info * info = Info::createInfo();
-    info->print_software_header("nolimit", 2017, 180313);
-    info->print_info_message("");
 
     nolimit_Parameters * params = nolimit_Parameters::create_nolimit_Parameters();
     params->read_file();
-
-    string dat_fileName = "input/pakf.dat";
 
 //    Timer * timer = Timer::createTimer();
 //    timer->set_start_time();
@@ -44,11 +40,22 @@ UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elem
     {
         bool all_elements_are_ok = true;
 
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
         for (UINT i = 1; i <= elements.get_size(); i++)
         {
             if (!this_brick_is_fine(elements[i], nodez))
             {
                 info->print_info_message("element number " + utos(i) + " has det less than zero");
+                all_elements_are_ok = false;
+            }
+        }
+
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+        for (UINT i = 1; i <= elements.get_size(); i++)
+        {
+            if (!this_tetra_is_fine(elements[i], nodez))
+            {
+                info->print_info_message("element number " + utos(i) + " has zero volume");
                 all_elements_are_ok = false;
             }
         }
@@ -61,8 +68,13 @@ UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elem
     {
         double volume = 0.;
 
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
         for (UINT i = 1; i <= elements.get_size(); i++)
             volume += get_brick_volume(elements[i], nodez);
+
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+        for (UINT i = 1; i <= elements.get_size(); i++)
+            volume += get_tetra_volume(elements[i], nodez);
 
         info->print_info_message("model volume is " + dtos(volume));
     }
@@ -79,19 +91,79 @@ UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elem
     {
         info->print_info_message("finding surface...");
 
+        Collection <Geom_Element> facez;
+
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
         {
-            Collection <Geom_Element> quads;
-
             for (UINT i = 1; i <= elements.get_size(); i++)
-                neighbours::create_facetz_add_facet_cogz_2_brick(elements[i], quads, nodez);
+                neighbours::create_facetz_add_facet_cogz_2_brick(elements[i], facez, nodez);
 
-            for (UINT i = 1; i <= quads.get_size(); i++)
-            if (nodez[quads[i].get_node(5)].get_flag())
-                boundary_and_loads::set_velocity_boundary_marker_2_all_nodes_in_element(quads[i], nodez);
+            for (UINT i = 1; i <= facez.get_size(); i++)
+            if (nodez[facez[i].get_node(5)].get_flag())
+                boundary_and_loads::set_velocity_boundary_marker_2_all_nodes_in_element(facez[i], nodez);
         }
+
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+        {
+            for (UINT i = 1; i <= elements.get_size(); i++)
+                neighbours::create_facetz_add_facet_cogz_2_tetra_simple(elements[i], facez, nodez);
+
+            for (UINT i = 1; i <= facez.get_size(); i++)
+            if (nodez[facez[i].get_node(4)].get_flag())
+                boundary_and_loads::set_velocity_boundary_marker_2_all_nodes_in_element(facez[i], nodez);
+        }
+
     }
 
 //    timer->print_time_interval_in_seconds_from_start_to_now();
 
     return 0;
 }
+
+UINT dnolimitF (Collection <Mesh_Node> & nodez, Collection <Geom_Element> & elements, Collection <Geom_Element> & surface_faces)
+{
+    Info * info = Info::createInfo();
+
+    for (UINT i = 1; i <= nodez.get_size(); i++)
+    {
+        nodez[i].clear_boundary();
+        nodez[i].set_flag(false);
+        nodez[i].clear_all_neighbours();
+    }
+
+    {
+        info->print_info_message("finding surface...");
+
+        Collection <Geom_Element> facez;
+
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+        {
+            for (UINT i = 1; i <= elements.get_size(); i++)
+                neighbours::create_facetz_add_facet_cogz_2_brick(elements[i], facez, nodez);
+
+            for (UINT i = 1; i <= facez.get_size(); i++)
+            if (nodez[facez[i].get_node(5)].get_flag())
+            {
+                boundary_and_loads::set_velocity_boundary_marker_2_all_nodes_in_element(facez[i], nodez);
+                surface_faces.insert(facez[i]);
+            }
+        }
+
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+        {
+            for (UINT i = 1; i <= elements.get_size(); i++)
+                neighbours::create_facetz_add_facet_cogz_2_tetra_simple(elements[i], facez, nodez);
+
+            for (UINT i = 1; i <= facez.get_size(); i++)
+            if (nodez[facez[i].get_node(4)].get_flag())
+            {
+                boundary_and_loads::set_velocity_boundary_marker_2_all_nodes_in_element(facez[i], nodez);
+                surface_faces.insert(facez[i]);
+            }
+        }
+
+    }
+
+    return 0;
+}
+

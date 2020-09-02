@@ -69,6 +69,8 @@
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dPrinting.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dSLI_Printer.cxx" />
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dSTL_Printer.cxx" />
+		<Unit filename="../dfemtoolz_dMyLib/dPrin/dSTL_Printer.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dVTK_Printer.cxx" />
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dVTK_Printer.h" />
 		<Unit filename="../dfemtoolz_dMyLib/dPrin/dWRL_Printer.cxx" />

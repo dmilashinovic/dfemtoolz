@@ -810,11 +810,11 @@
 	"../dfemtoolz_dMyLib.h"
 	"../dGeom/dGeom_Node.h"
 
-1534438346 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_Node.h
+1598978989 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_Node.h
 	"../dfemtoolz_dMyLib.h"
 	"../dBase/dConstants.h"
 
-1534438346 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_Node.cxx
+1598978989 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_Node.cxx
 	"dGeom_Node.h"
 
 1534438346 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_Plane.cxx
@@ -832,7 +832,7 @@
 1591459981 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dInit/dInit_Node.h
 	"../dMesh/dMesh_Node.h"
 
-1534438346 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dMesh/dMesh_Node.h
+1598979011 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dMesh/dMesh_Node.h
 	"../dBase/dCollection.h"
 	"../dBase/dConstants.h"
 	"../dGeom/dGeom_Node.h"
@@ -846,10 +846,10 @@
 	"../dGeom/dGeom_Element.h"
 	"../dMesh/dMesh_Node.h"
 
-1534438346 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx
+1598972275 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx
 	"dMesh_Neighbours.h"
 
-1534438346 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.h
+1598972212 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.h
 	"../dfemtoolz_dMyLib.h"
 	"../dBase/dCollection.h"
 	"../dGeom/dGeom_Element.h"
@@ -882,7 +882,7 @@
 	"../dPrin/dInfo.h"
 	"dMesh_Neighbours.h"
 
-1534438346 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_TFunctions.h
+1598970460 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dGeom/dGeom_TFunctions.h
 	"../dfemtoolz_dMyLib.h"
 	"../dBase/dCollection.h"
 	"../dBase/dConstants.h"
@@ -1102,10 +1102,10 @@
 	"../dPrin/dInfo.h"
 	"dReading.h"
 
-1593893036 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimit.cxx
+1598980295 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimit.cxx
 	"dnolimit.h"
 
-1593892317 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimit.h
+1598978125 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimit.h
 	"../dfemtoolz_dMyLib/dfemtoolz_dMyLib.h"
 	"../dfemtoolz_dMyLib/dBase/dCollection.h"
 	"../dfemtoolz_dMyLib/dBase/dConstants.h"
@@ -1121,6 +1121,7 @@
 	"../dfemtoolz_dMyLib/dPrin/dPOS_Printer.h"
 	"../dfemtoolz_dMyLib/dPrin/dVTK_Printer.h"
 	"../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h"
+	"../dfemtoolz_dMyLib/dPrin/dSTL_Printer.h"
 	"../dfemtoolz_dMyLib/dPrin/dInfo.h"
 	"../dfemtoolz_dMyLib/dRead/dSLI_Reader.h"
 	"dnolimit_parameters.h"
@@ -1132,7 +1133,7 @@
 	"../dfemtoolz_dMyLib/dPrin/dInfo.h"
 	"../dfemtoolz_dMyLib/dRead/dReading.h"
 
-1534438346 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimitF.h
+1598972603 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimitF.h
 	"../dfemtoolz_dMyLib/dfemtoolz_dMyLib.h"
 	"../dfemtoolz_dMyLib/dBase/dCollection.h"
 	"../dfemtoolz_dMyLib/dBase/dConstants.h"
@@ -1154,10 +1155,10 @@
 1593892300 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimit_parameters.cxx
 	"dnolimit_parameters.h"
 
-1534438346 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimitF.cxx
+1598972603 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_nolimit/dnolimitF.cxx
 	"dnolimitF.h"
 
-1593958931 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dPrin/dVTK_Printer.h
+1593969353 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dPrin/dVTK_Printer.h
 	"../dfemtoolz_dMyLib.h"
 	"../dBase/dCollection.h"
 	"../dBase/dSuperCollection.h"
@@ -1173,6 +1174,24 @@
 	<vector>
 	"dInfo.h"
 
-1593958913 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dPrin/dVTK_Printer.cxx
+1593969544 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dPrin/dVTK_Printer.cxx
 	"dVTK_Printer.h"
+
+1598981612 source:/media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dPrin/dSTL_Printer.cxx
+	"dSTL_Printer.h"
+
+1598980256 /media/ntfs/shtek/danko-data/github/dfemtoolz-master/dfemtoolz_dMyLib/dPrin/dSTL_Printer.h
+	"../dfemtoolz_dMyLib.h"
+	"../dBase/dCollection.h"
+	"../dBase/dSuperCollection.h"
+	"../dBase/dConstants.h"
+	"../dGeom/dGeom_Node.h"
+	"../dGeom/dGeom_Element.h"
+	"../dMesh/dMesh_Node.h"
+	"../dMesh/dMeshing.h"
+	"../dMisc/dMisc_Functionz.h"
+	"../dPost/dPost_Node.h"
+	"../dInit/dInit_Node.h"
+	<fstream>
+	"dInfo.h"
 

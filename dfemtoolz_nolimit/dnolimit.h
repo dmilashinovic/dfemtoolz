@@ -57,6 +57,7 @@
 #include "../dfemtoolz_dMyLib/dPrin/dPOS_Printer.h"
 #include "../dfemtoolz_dMyLib/dPrin/dVTK_Printer.h"
 #include "../dfemtoolz_dMyLib/dPrin/dSLI_Printer.h"
+#include "../dfemtoolz_dMyLib/dPrin/dSTL_Printer.h"
 #include "../dfemtoolz_dMyLib/dPrin/dInfo.h"
 
 #include "../dfemtoolz_dMyLib/dRead/dSLI_Reader.h"

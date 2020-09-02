@@ -38,7 +38,10 @@ int main ()
     timer->set_start_time();
 
     Collection <Mesh_Node> nodez;
-    Collection <Geom_Element>  elements;
+    Collection <Geom_Element>  elements, surface_faces_collection;
+
+
+
 
     /// in this version - only sli is supported
     {
@@ -50,7 +53,9 @@ int main ()
 
     UINT no_of_nodes = nodez.get_size();
 
-    dnolimitF(nodez, elements);
+//    dnolimitF(nodez, elements);
+
+    dnolimitF(nodez, elements, surface_faces_collection);
 
     timer->print_time_interval_in_seconds_from_start_to_now();
 
@@ -67,8 +72,13 @@ int main ()
             pos_printer->print_nodes_boundary_to_pos_file(nodez, "output/nodes_boundary.pos");
         }
 
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
         if (params->print_pos_elements)
-            pos_printer->print_elems_to_pos_file(elements, constants::POS_BRICK, nodez, "output/elements.pos");
+            pos_printer->print_elems_to_pos_file(elements, constants::POS_BRICK, nodez, "output/elements-hex.pos");
+
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+        if (params->print_pos_elements)
+            pos_printer->print_elems_to_pos_file(elements, constants::POS_TETRA, nodez, "output/elements-tet.pos");
     }
 
 
@@ -76,10 +86,22 @@ int main ()
     {
         VTK_Printer * vtk_printer = VTK_Printer::create_VTK_Printer();
 
-        vtk_printer->print_brick_elems_material_2_vtk_file(
-        elements, nodez, "output/elements.vtk");
+        if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+            vtk_printer->print_brick_elems_material_2_vtk_file(
+            elements, nodez, "output/elements-hex.vtk");
+
+        if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+            vtk_printer->print_tetrahedron_elems_material_2_vtk_file(
+            elements, nodez, "output/elements-tet.vtk");
     }
 
+    STL_Printer * stl_printer = STL_Printer::create_STL_Printer();
+
+    if (elements[1].how_many_nodes_per_element() == constants::BRICK)
+        stl_printer->print_stl_file(constants::QUAD, surface_faces_collection, nodez, "output/stl-test-hex.stl");
+
+    if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+        stl_printer->print_stl_file(constants::TRIANGLE, surface_faces_collection, nodez, "output/stl-test-tet.stl");
 
 
     SLI_Printer * sli_printer = SLI_Printer::create_SLI_Printer();
@@ -91,6 +113,13 @@ int main ()
     if (elements[1].how_many_nodes_per_element() == constants::BRICK)
     {
         sli_printer->second_block(elements.get_size(), constants::BRICK);
+        sli_printer->print_elems_using_elem_position_in_collection_as_ID_into_sli(elements, nodez);
+        sli_printer->third_block();
+    }
+
+    if (elements[1].how_many_nodes_per_element() == constants::TETRA)
+    {
+        sli_printer->second_block(elements.get_size(), constants::TETRA);
         sli_printer->print_elems_using_elem_position_in_collection_as_ID_into_sli(elements, nodez);
         sli_printer->third_block();
     }

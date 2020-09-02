@@ -112,6 +112,45 @@ namespace neighbours
         facetz.insert(facet);
     }
 
+    void create_facetz_add_facet_cogz_2_tetra_simple
+    (Geom_Element & tetra, Collection<Geom_Element> & facetz, Collection<Mesh_Node> & node_col)
+    {
+        Geom_Element facet(4);
+
+        facet.set_node(tetra.get_node(1), 1);
+        facet.set_node(tetra.get_node(2), 2);
+        facet.set_node(tetra.get_node(3), 3);
+        facet.set_node
+        (calculate_triangle_cog_and_add_neighbourz(facet, node_col), 4); // CoG for triangle
+        // this line is empty because here Face-CoG is used only for boundary condition...
+        facetz.insert(facet);
+
+        facet.set_node(tetra.get_node(1), 1);
+        facet.set_node(tetra.get_node(2), 2);
+        facet.set_node(tetra.get_node(4), 3);
+        facet.set_node
+        (calculate_triangle_cog_and_add_neighbourz(facet, node_col), 4); // CoG for triangle
+        // this line is empty because here Face-CoG is used only for boundary condition...
+        facetz.insert(facet);
+
+        facet.set_node(tetra.get_node(2), 1);
+        facet.set_node(tetra.get_node(3), 2);
+        facet.set_node(tetra.get_node(4), 3);
+        facet.set_node
+        (calculate_triangle_cog_and_add_neighbourz(facet, node_col), 4); // CoG for triangle
+        // this line is empty because here Face-CoG is used only for boundary condition...
+        facetz.insert(facet);
+
+        facet.set_node(tetra.get_node(3), 1);
+        facet.set_node(tetra.get_node(1), 2);
+        facet.set_node(tetra.get_node(4), 3);
+        facet.set_node
+        (calculate_triangle_cog_and_add_neighbourz(facet, node_col), 4); // CoG for triangle
+        // this line is empty because here Face-CoG is used only for boundary condition...
+        facetz.insert(facet);
+
+    }
+
     void create_facetz_add_facet_cogz_2_brick
     (Geom_Element & brick, Collection<Geom_Element> & facetz, Collection<Mesh_Node> & node_col)
     {
@@ -225,6 +264,33 @@ namespace neighbours
         node_c[triangle.get_node(5)].add_neighbour_node(CoG_ID);
         node_c[triangle.get_node(6)].add_neighbour_node(CoG_ID);
         node_c[triangle.get_node(7)].add_neighbour_node(CoG_ID);
+
+        return CoG_ID;
+    }
+
+    UINT calculate_triangle_cog_and_add_neighbourz
+    (Geom_Element & triangle, Collection<Mesh_Node> & node_c)
+    {
+        UINT all3neighbour_ID =
+        neighbours::get_nodez_neighbour
+        (node_c[triangle.get_node(1)], node_c[triangle.get_node(2)], node_c[triangle.get_node(3)]);
+
+        if (all3neighbour_ID != 0)
+        {
+            node_c[all3neighbour_ID].set_flag();
+            return all3neighbour_ID;
+        }
+
+        Mesh_Node CoG;
+        CoG = get_gravitycenter(node_c[triangle.get_node(1)], node_c[triangle.get_node(2)], node_c[triangle.get_node(3)]);
+        CoG.set_flag();
+
+        node_c.insert(CoG);
+
+        UINT CoG_ID = node_c.get_size();
+        node_c[triangle.get_node(1)].add_neighbour_node(CoG_ID);
+        node_c[triangle.get_node(2)].add_neighbour_node(CoG_ID);
+        node_c[triangle.get_node(3)].add_neighbour_node(CoG_ID);
 
         return CoG_ID;
     }

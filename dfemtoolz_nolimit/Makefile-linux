@@ -29,7 +29,7 @@ OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
 OUT_RELEASE = bin/Release/dfemtoolz_nolimit
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSLI_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dFemap_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dFAL_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dWRL_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dVTK_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPrinting.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPOS_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dInfo.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost/dPost_Node.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dUNV_Reader.o $(OBJDIR_RELEASE)/dnolimit_parameters.o $(OBJDIR_RELEASE)/dnolimitF.o $(OBJDIR_RELEASE)/dnolimit.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dTetgen_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dSTL_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dSLI_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dReading.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Node.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dInit/dInit_Node.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Plane.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Functions.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Element.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dBase/dError.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dMisc_Functionz.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dTimer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dSTL_Triangle.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dRandom_Number_Generator.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dPercent.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dDirectory_Miner.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMeshing.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Node.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dFemap_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dFAL_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dWRL_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dVTK_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSTL_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSLI_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPrinting.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPOS_Printer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dInfo.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dUNV_Reader.o $(OBJDIR_RELEASE)/dnolimit_parameters.o $(OBJDIR_RELEASE)/dnolimitF.o $(OBJDIR_RELEASE)/dnolimit.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost/dPost_Node.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dTetgen_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dSTL_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dSLI_Reader.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dReading.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Node.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dInit/dInit_Node.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Plane.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Functions.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Element.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dBase/dError.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dTimer.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dSTL_Triangle.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dRandom_Number_Generator.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dPercent.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dMisc_Functionz.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dDirectory_Miner.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMeshing.o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Node.o
 
 all: release
 
@@ -37,10 +37,10 @@ clean: clean_release
 
 before_release: 
 	test -d bin/Release || mkdir -p bin/Release
-	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin
 	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead
-	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost
+	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin
 	test -d $(OBJDIR_RELEASE) || mkdir -p $(OBJDIR_RELEASE)
+	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost
 	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom
 	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh
 	test -d $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dInit || mkdir -p $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dInit
@@ -54,9 +54,6 @@ release: before_release out_release after_release
 out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ_RELEASE)  $(LDFLAGS_RELEASE) $(LIB_RELEASE)
 
-$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSLI_Printer.o: ../dfemtoolz_dMyLib/dPrin/dSLI_Printer.cxx
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPrin/dSLI_Printer.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSLI_Printer.o
-
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dFemap_Reader.o: ../dfemtoolz_dMyLib/dRead/dFemap_Reader.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dRead/dFemap_Reader.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dFemap_Reader.o
 
@@ -69,6 +66,12 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dWRL_Printer.o: ../dfemtoolz_dMyLib/
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dVTK_Printer.o: ../dfemtoolz_dMyLib/dPrin/dVTK_Printer.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPrin/dVTK_Printer.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dVTK_Printer.o
 
+$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSTL_Printer.o: ../dfemtoolz_dMyLib/dPrin/dSTL_Printer.cxx
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPrin/dSTL_Printer.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSTL_Printer.o
+
+$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSLI_Printer.o: ../dfemtoolz_dMyLib/dPrin/dSLI_Printer.cxx
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPrin/dSLI_Printer.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dSLI_Printer.o
+
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPrinting.o: ../dfemtoolz_dMyLib/dPrin/dPrinting.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPrin/dPrinting.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPrinting.o
 
@@ -77,9 +80,6 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dPOS_Printer.o: ../dfemtoolz_dMyLib/
 
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dInfo.o: ../dfemtoolz_dMyLib/dPrin/dInfo.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPrin/dInfo.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin/dInfo.o
-
-$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost/dPost_Node.o: ../dfemtoolz_dMyLib/dPost/dPost_Node.cxx
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPost/dPost_Node.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost/dPost_Node.o
 
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dUNV_Reader.o: ../dfemtoolz_dMyLib/dRead/dUNV_Reader.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dRead/dUNV_Reader.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dUNV_Reader.o
@@ -92,6 +92,9 @@ $(OBJDIR_RELEASE)/dnolimitF.o: dnolimitF.cxx
 
 $(OBJDIR_RELEASE)/dnolimit.o: dnolimit.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c dnolimit.cxx -o $(OBJDIR_RELEASE)/dnolimit.o
+
+$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost/dPost_Node.o: ../dfemtoolz_dMyLib/dPost/dPost_Node.cxx
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dPost/dPost_Node.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost/dPost_Node.o
 
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dTetgen_Reader.o: ../dfemtoolz_dMyLib/dRead/dTetgen_Reader.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dRead/dTetgen_Reader.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dTetgen_Reader.o
@@ -108,6 +111,9 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead/dReading.o: ../dfemtoolz_dMyLib/dRea
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Node.o: ../dfemtoolz_dMyLib/dGeom/dGeom_Node.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dGeom/dGeom_Node.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Node.o
 
+$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.o: ../dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.o
+
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.o: ../dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Boundary_and_Loads.o
 
@@ -117,9 +123,6 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dInit/dInit_Node.o: ../dfemtoolz_dMyLib/dI
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Plane.o: ../dfemtoolz_dMyLib/dGeom/dGeom_Plane.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dGeom/dGeom_Plane.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Plane.o
 
-$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.o: ../dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Neighbours.o
-
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Functions.o: ../dfemtoolz_dMyLib/dGeom/dGeom_Functions.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dGeom/dGeom_Functions.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Functions.o
 
@@ -128,9 +131,6 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom/dGeom_Element.o: ../dfemtoolz_dMyLib
 
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dBase/dError.o: ../dfemtoolz_dMyLib/dBase/dError.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dBase/dError.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dBase/dError.o
-
-$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dMisc_Functionz.o: ../dfemtoolz_dMyLib/dMisc/dMisc_Functionz.cxx
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMisc/dMisc_Functionz.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dMisc_Functionz.o
 
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dTimer.o: ../dfemtoolz_dMyLib/dMisc/dTimer.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMisc/dTimer.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dTimer.o
@@ -144,6 +144,9 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dRandom_Number_Generator.o: ../dfemt
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dPercent.o: ../dfemtoolz_dMyLib/dMisc/dPercent.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMisc/dPercent.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dPercent.o
 
+$(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dMisc_Functionz.o: ../dfemtoolz_dMyLib/dMisc/dMisc_Functionz.cxx
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMisc/dMisc_Functionz.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dMisc_Functionz.o
+
 $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dDirectory_Miner.o: ../dfemtoolz_dMyLib/dMisc/dDirectory_Miner.cxx
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c ../dfemtoolz_dMyLib/dMisc/dDirectory_Miner.cxx -o $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMisc/dDirectory_Miner.o
 
@@ -156,10 +159,10 @@ $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh/dMesh_Node.o: ../dfemtoolz_dMyLib/dM
 clean_release: 
 	rm -f $(OBJ_RELEASE) $(OUT_RELEASE)
 	rm -rf bin/Release
-	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin
 	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dRead
-	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost
+	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPrin
 	rm -rf $(OBJDIR_RELEASE)
+	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dPost
 	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dGeom
 	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dMesh
 	rm -rf $(OBJDIR_RELEASE)/__/dfemtoolz_dMyLib/dInit

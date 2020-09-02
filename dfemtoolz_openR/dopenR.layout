@@ -7,18 +7,9 @@
 			<Cursor1 position="4434" topLine="108" />
 		</Cursor>
 	</File>
-	<File name="dopenRf.cxx" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../dfemtoolz_dMyLib/dPrin/dVTK_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="13940" topLine="293" />
-		</Cursor>
-		<Folding>
-			<Collapse line="281" />
-			<Collapse line="359" />
-		</Folding>
-	</File>
-	<File name="dopenR.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1849" topLine="35" />
+			<Cursor1 position="22180" topLine="668" />
 		</Cursor>
 	</File>
 	<File name="dopenR_parameters.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -26,24 +17,29 @@
 			<Cursor1 position="1687" topLine="47" />
 		</Cursor>
 	</File>
+	<File name="dopenR_functions.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="dopenR.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5434" topLine="111" />
+		</Cursor>
+	</File>
 	<File name="dopenRf.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2792" topLine="72" />
 		</Cursor>
 	</File>
-	<File name="dopenR.cxx" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="dopenRf.cxx" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5008" topLine="111" />
+			<Cursor1 position="22350" topLine="605" />
 		</Cursor>
 	</File>
-	<File name="..\dfemtoolz_dMyLib\dPrin\dVTK_Printer.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="dopenR.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="22180" topLine="668" />
-		</Cursor>
-	</File>
-	<File name="dopenR_functions.cxx" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11" topLine="72" />
+			<Cursor1 position="1604" topLine="35" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
