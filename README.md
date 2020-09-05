@@ -30,6 +30,7 @@ Due to its design (well written plain C++ code and standard library) these tools
 There are modules of dfemtoolz that are excluded from this [public] package (additional sub-modules of openR for prescribing specific loads to the model, exports and imports for PAKF, modules for skeletalization, tools for STL reparation, noise reduction modules, modules for streamlines, module for generation of particle clouds...). In future some of these modules may become part of the public package as well.
 
 This software is available for the public under GNU GPLv3 license.
+
 dmilashinovic ..::at::.. gmail.com
 
 Citation: D.Z. Milasinovic, A.M. Vukicevic, N.D. Filipovic, dfemtoolz: An open-source C++ framework for efficient imposition of material and boundary conditions in finite element biomedical simulations, Computer Physics Communications, 249 (2020) 106996, doi: 10.1016/j.cpc.2019.106996.
